@@ -257,8 +257,8 @@ export function ExpertiseSection(): ReactElement {
 
           {/* Second row of cards */}
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-0">
-            {/* Card 4: Animated Timeline Process */}
-            <motion.div variants={itemVariants} className="group">
+          
+            {/* <motion.div variants={itemVariants} className="group">
               <div className="h-full rounded-lg border border-border bg-background/50 p-6 hover:border-primary/50 transition-all duration-300">
                 <div className="space-y-6">
                   <div className="space-y-4">
@@ -286,7 +286,7 @@ export function ExpertiseSection(): ReactElement {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Card 5: Fixed $12M chart */}
             {/* <motion.div variants={itemVariants} className="group">
@@ -304,7 +304,7 @@ export function ExpertiseSection(): ReactElement {
                     </div>
                     <div className="flex items-center space-x-2 px-3 py-2 bg-background/50 backdrop-blur-sm border border-border/30 rounded-full self-start lg:self-center">
                       <span className="text-xs text-muted-foreground">powered by</span>
-                      <img src="/images/weltivation-logo.png" alt="Weltivation" className="h-6" />
+                      <img src="/images/newlogo.png" alt="VertexCore AI" className="h-6" />
                     </div>
                   </div>
 
@@ -490,8 +490,8 @@ function CompanyLogoTicker(): ReactElement {
       >
         <div className="h-5 w-auto">
           <img
-            src="/images/weltivation-logo.png"
-            alt="Weltivation"
+            src="/images/newlogo.png"
+            alt="VertexCore AI"
             className="h-5 w-auto object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity"
           />
         </div>
@@ -532,8 +532,8 @@ function CompanyLogoTicker(): ReactElement {
         </div>
         <div className="h-5 w-auto">
           <img
-            src="/images/weltivation-logo.png"
-            alt="Weltivation"
+            src="/images/newlogo.png"
+            alt="VertexCore AI"
             className="h-5 w-auto object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity"
           />
         </div>
@@ -548,8 +548,8 @@ function CompanyLogoTicker(): ReactElement {
         {/* Duplicate set for seamless looping */}
         <div className="h-5 w-auto">
           <img
-            src="/images/weltivation-logo.png"
-            alt="Weltivation"
+            src="/images/newlogo.png"
+            alt="VertexCore AI"
             className="h-5 w-auto object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity"
           />
         </div>
@@ -613,8 +613,8 @@ function CompanyLogoTicker(): ReactElement {
         </div>
         <div className="h-5 w-auto">
           <img
-            src="/images/weltivation-logo.png"
-            alt="Weltivation"
+            src="/images/newlogo.png"
+            alt="VertexCore AI"
             className="h-5 w-auto object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity"
           />
         </div>
@@ -671,8 +671,8 @@ function CompanyLogoTicker(): ReactElement {
         </div>
         <div className="h-5 w-auto">
           <img
-            src="/images/weltivation-logo.png"
-            alt="Weltivation"
+            src="/images/newlogo.png"
+            alt="VertexCore AI"
             className="h-5 w-auto object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity"
           />
         </div>

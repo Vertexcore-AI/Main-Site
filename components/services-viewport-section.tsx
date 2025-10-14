@@ -308,14 +308,14 @@ export function ServicesViewportSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
+          {/* <motion.div
             className="inline-flex items-center space-x-2 px-6 py-3 bg-gray-800/50 rounded-full border border-gray-700 mb-6 backdrop-blur-sm"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
           >
             <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
             <span className="text-sm font-medium text-gray-300">Premium Services</span>
-          </motion.div>
+          </motion.div> */}
 
           <h2 className="text-5xl sm:text-6xl font-black mb-6 leading-tight">
             <span className="text-white">Services That </span>
@@ -657,15 +657,15 @@ function MobileUIGraphic({ service }: { service: any }) {
     <div className="flex justify-center items-center">
       {/* Enhanced Phone Mockup with Template Showcase */}
       <div className="relative scale-100">
-        <div className="w-70 h-[500px] bg-gray-700 rounded-[3rem] p-3 shadow-2xl">
+        <div className="w-72 h-[580px] bg-gray-700 rounded-[3rem] p-3 shadow-2xl">
           <div className="w-full h-full bg-gray-800 rounded-[2.5rem] overflow-hidden relative">
             {/* Status Bar */}
             <div className="flex justify-between items-center px-4 py-3  text-xs border-b border-gray-100">
-              <span className="font-semibold text-gray-300">9:41</span>
-              <div className="flex space-x-1 items-center">
-                <div className="w-4 h-2 bg-gray-500 rounded-sm"></div>
+              <span className="font-semibold text-gray-300"></span>
+              <div className="flex space-x-1 items-center mb-2">
+                {/* <div className="w-4 h-2 bg-gray-500 rounded-sm"></div>
                 <div className="w-4 h-2 bg-gray-400 rounded-sm"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div> */}
               </div>
             </div>
 
@@ -726,68 +726,76 @@ function MobileUIGraphic({ service }: { service: any }) {
 }
 
 function DigitalSystemsUIGraphic({ service }: { service: any }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+  const systemImages = [
+    { img: "/images/SYS_img/perk.PNG", title: "System Dashboard", description: "Digital System Interface" },
+    { img: "/images/SYS_img/perk_2.PNG", title: "System Analytics", description: "Performance Metrics" },
+    { img: "/images/SYS_img/perk_3.PNG", title: "System Automation", description: "Workflow Integration" },
+  ]
+
+  const handlePrevImage = () => {
+    setActiveImageIndex((prev) => (prev === 0 ? systemImages.length - 1 : prev - 1))
+  }
+
+  const handleNextImage = () => {
+    setActiveImageIndex((prev) => (prev === systemImages.length - 1 ? 0 : prev + 1))
+  }
+
   return (
     <div className="space-y-6">
-      {/* Enhanced System Architecture */}
+      {/* Enhanced System Architecture with Image Carousel */}
       <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 shadow-lg">
-        <div className="grid grid-cols-3 gap-4">
-          {/* Data Sources */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Data Sources</h4>
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="h-8 bg-gradient-to-r from-gray-600 to-gray-700 rounded shadow-md flex items-center justify-center"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: i * 0.3 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Database className="w-4 h-4 text-white" />
-              </motion.div>
-            ))}
-          </div>
+        <div className="relative min-h-[240px] flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-gray-100 to-gray-200">
+          <motion.img
+            key={activeImageIndex}
+            src={systemImages[activeImageIndex].img}
+            alt={systemImages[activeImageIndex].title}
+            className="w-full h-full object-contain"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+          />
 
-          {/* Processing */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Processing</h4>
-            <motion.div
-              className="h-20 bg-gradient-to-br from-gray-700 to-gray-800 rounded shadow-lg flex items-center justify-center"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <Cog className="w-8 h-8 text-white animate-spin" style={{ animationDuration: "3s" }} />
-            </motion.div>
-          </div>
-
-          {/* Outputs */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Outputs</h4>
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="h-8 bg-gradient-to-r from-gray-600 to-gray-700 rounded shadow-md flex items-center justify-center"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: i * 0.3 + 1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Cloud className="w-4 h-4 text-white" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Data Flow Arrows */}
-        <div className="flex justify-center items-center mt-4 space-x-4">
-          <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-            <ArrowRight className="w-5 h-5 text-gray-600" />
-          </motion.div>
-          <motion.div
-            animate={{ x: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
+          {/* Navigation Buttons */}
+          <button
+            onClick={handlePrevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group z-10"
           >
-            <ArrowRight className="w-5 h-5 text-gray-600" />
-          </motion.div>
+            <motion.div
+              animate={{ x: [-2, 0, -2] }}
+              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+            >
+              <ArrowRight className="w-5 h-5 text-white rotate-180" />
+            </motion.div>
+          </button>
+
+          <button
+            onClick={handleNextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group z-10"
+          >
+            <motion.div
+              animate={{ x: [-2, 0, -2] }}
+              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+            >
+              <ArrowRight className="w-5 h-5 text-white" />
+            </motion.div>
+          </button>
+
+          {/* Image Indicators */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            {systemImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveImageIndex(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  idx === activeImageIndex ? "bg-gray-800 w-8" : "bg-gray-400 hover:bg-gray-600"
+                }`}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
 

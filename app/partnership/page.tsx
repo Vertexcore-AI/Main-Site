@@ -72,7 +72,7 @@ export default function PartnershipPage() {
                 <div className="flex flex-col items-center space-y-6">
                   <div className="flex items-center space-x-4">
                     <span className="text-3xl text-gray-300 font-light">powered by</span>
-                    <img src="/images/weltivation-logo.png" alt="Weltivation" className="w-80 h-20 object-contain" />
+                    <img src="/images/newlogo.png" alt="VertexCore AI" className="w-100 h-100 object-contain" />
                   </div>
                   <div className="text-center">
                     <p className="text-gray-400 text-xl mb-2">Keep our badge and unlock</p>

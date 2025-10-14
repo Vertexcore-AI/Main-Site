@@ -68,7 +68,7 @@ export function Footer() {
         {/* Desktop Footer */}
         <div className="hidden md:flex flex-col sm:flex-row justify-between items-center gap-8">
           <div className="flex items-center space-x-4">
-            <img src="/images/weltivation-logo.png" alt="Weltivation" className="h-14" />
+            <img src="/images/newlogo.png" alt="VertexCore AI" className="h-14" />
             <FooterPopup />
           </div>
 
@@ -98,7 +98,7 @@ export function Footer() {
         <div className="md:hidden space-y-6">
           {/* Logo and main info */}
           <div className="text-center space-y-4">
-            <img src="/images/weltivation-logo.png" alt="Weltivation" className="h-12 mx-auto" />
+            <img src="/images/newlogo.png" alt="VertexCore AI" className="h-12 mx-auto" />
             <div className="text-muted-foreground text-xs">
               &copy; {new Date().getFullYear()} Weltivation. All rights reserved.
             </div>

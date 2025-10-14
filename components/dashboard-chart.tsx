@@ -161,7 +161,7 @@ export function DashboardChart() {
       {/* Powered by badge */}
       <div className="absolute bottom-4 right-4 flex items-center space-x-2 px-3 py-1.5 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700/50">
         <span className="text-xs text-gray-400">powered by</span>
-        <img src="/images/weltivation-logo.png" alt="Weltivation" className="h-4" />
+        <img src="/images/newlogo.png" alt="VertexCore AI" className="h-4" />
       </div>
 
       {/* Floating Elements */}

@@ -38,8 +38,8 @@ export function NavBar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/70 backdrop-blur-md border-b border-gray-800/50" : "bg-black/30 backdrop-blur-sm"
+      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-black/40 backdrop-blur-md border-b border-gray-800/30" : "bg-black/15 backdrop-blur-sm"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -49,13 +49,33 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2" onClick={scrollToTop}>
-            <Image
-              src="/images/weltivation-logo.png"
-              alt="Weltivation"
-              width={200}
-              height={50}
-              className="h-12 w-auto"
-            />
+            <motion.div
+              animate={{
+                filter: [
+                  "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
+                  "drop-shadow(0 0 12px rgba(255,255,255,0.6))",
+                  "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+              whileHover={{
+                scale: 1.05,
+                filter: "drop-shadow(0 0 16px rgba(255,255,255,0.8))",
+                transition: { duration: 0.3 },
+              }}
+            >
+              <Image
+                src="/images/newlogo.png"
+                alt="VertexCore AI"
+                width={280}
+                height={70}
+                className="h-16 w-auto"
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -85,12 +105,12 @@ export function NavBar() {
             >
               <Monitor className="w-5 h-5" />
             </Link>
-            <Link href="/consultation" onClick={scrollToTop}>
+            {/* <Link href="/consultation" onClick={scrollToTop}>
               <Button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium">
                 <Zap className="w-4 h-4 mr-2" />
                 Free Consultation
               </Button>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile menu button and Free Consultation */}

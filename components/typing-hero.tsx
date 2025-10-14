@@ -13,7 +13,7 @@ export function TypingHero() {
   const phrases = [
     { text: "Technology", color: "text-emerald-400", cursorColor: "bg-emerald-400" },
     { text: "Digital Solutions", color: "text-blue-400", cursorColor: "bg-blue-400" },
-    { text: "AI Driven Solutions", color: "text-orange-400", cursorColor: "bg-orange-400" },
+    { text: "AI Solutions", color: "text-orange-400", cursorColor: "bg-orange-400" },
   ]
 
   const baseText = "Let's create tomorrow's "
@@ -59,9 +59,9 @@ export function TypingHero() {
   }, [currentCharIndex, isDeleting, currentPhraseIndex])
 
   return (
-    <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter font-mono">
+    <h1 className="text-6xl sm:text-8xl font-bold tracking-tighter font-mono">
       <div className="flex flex-wrap justify-center">
- 
+
         <div className="relative">
           <span className="text-white">{baseText}</span>
           <span className={`${phrases[currentPhraseIndex].color} drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]`}>
@@ -69,7 +69,7 @@ export function TypingHero() {
           </span>
           {showCursor && (
             <motion.span
-              className={`inline-block w-4 h-10 ${phrases[currentPhraseIndex].cursorColor} ml-1`}
+              className={`inline-block w-5 h-14 ${phrases[currentPhraseIndex].cursorColor} ml-1`}
               animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
             />

@@ -26,8 +26,8 @@ export const Icons = {
   /** Weltivation logo – adjust width/height with Tailwind classes */
   logo: ({ className, ...rest }: Omit<React.ComponentProps<typeof Image>, "src" | "alt">) => (
     <Image
-      src="/images/weltivation-logo.png"
-      alt="Weltivation"
+      src="/images/newlogo.png"
+      alt="VertexCore AI"
       width={24}
       height={24}
       className={className}

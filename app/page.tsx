@@ -13,6 +13,7 @@ import { Zap } from "lucide-react"
 import { ProfileDropdown } from "@/components/profile-dropdown"
 import { ServicesViewportSection } from "@/components/services-viewport-section"
 import Particles from "@/components/particles"
+import { Highlight } from "@/components/ui/hero-highlight"
 
 export default function Home() {
   return (
@@ -41,11 +42,11 @@ export default function Home() {
               className="opacity-50"
             />
           </div>
-          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+          <div className="relative z-1 text-center space-y-6">
            
 
             {/* Enhanced hero with better contrast */}
-            <div className="relative">
+            <div className="relative mt-16">
               {/* Background for better contrast in light mode */}
               <div className="absolute inset-0 bg-background/80 dark:bg-transparent rounded-2xl blur-3xl"></div>
               <div className="relative z-10">
@@ -56,13 +57,26 @@ export default function Home() {
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto my-8"></div>
 
             {/* Enhanced description with better contrast */}
-            <div className="relative">
+            <motion.div
+              className="relative space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
               <div className="absolute inset-0 bg-background/60 dark:bg-transparent rounded-xl blur-2xl"></div>
-              <p className="relative z-10 text-muted-foreground max-w-xl mx-auto font-medium">
-                Transforming ideas into powerful digital solutions that drive growth and innovation for forward-thinking
-                businesses.
+
+              {/* Accent tagline */}
+              <div className="relative z-10 inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
+                <p className="text-sm text-blue-400 font-semibold">
+                  Building The Intelligence That Shapes The Future
+                </p>
+              </div>
+
+              {/* Main value proposition - bigger and bolder */}
+              <p className="relative z-10 text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto font-medium leading-relaxed">
+                Transforming <Highlight delay={1.5}>ideas</Highlight> into powerful <Highlight delay={2.0}>digital solutions</Highlight> that drive growth and innovation for <Highlight delay={2.5}>forward-thinking</Highlight> businesses.
               </p>
-            </div>
+            </motion.div>
 
             {/* Button section - Left to Right order */}
             {/* <div className="pt-8">
@@ -151,7 +165,7 @@ export default function Home() {
                   >
                     <span className="flex items-center space-x-2">
                       <Zap className="w-5 h-5" />
-                      <span>AI Driven Solutions</span>
+                      <span>AI Solutions</span>
                     </span>
                   </Link>
 

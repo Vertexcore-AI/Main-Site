@@ -106,7 +106,7 @@ export function FooterPopup() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
                   <div className="flex items-center space-x-4">
-                    <img src="/images/weltivation-logo.png" alt="Weltivation" className="h-12" />
+                    <img src="/images/newlogo.png" alt="VertexCore AI" className="h-12" />
                     <div>
                       <p className="text-sm text-muted-foreground">Ready to build the future together?</p>
                     </div>
