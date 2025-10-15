@@ -74,7 +74,7 @@ export function Footer() {
 
           <div className="flex flex-col sm:flex-row items-center gap-8">
             <div className="text-muted-foreground text-xs">
-              &copy; {new Date().getFullYear()} Weltivation. All rights reserved.
+              &copy; {new Date().getFullYear()} VertexCore AI. All rights reserved.
             </div>
 
             <div className="flex items-center gap-4">
