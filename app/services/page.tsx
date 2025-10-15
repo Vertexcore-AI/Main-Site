@@ -14,6 +14,8 @@ import {
   Globe,
   ArrowRight,
   CheckCircle,
+  Database,
+  GitBranch,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -29,6 +31,33 @@ import {
 
 export default function ServicesPage() {
   const services = [
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: "AI-Powered Software Solutions",
+      description: "Next-gen software built with intelligence, scalability, and precision",
+      features: ["Machine Learning Integration", "AI Model Development", "Automated Workflows", "Smart Analytics"],
+      price: "Starting at $10,000",
+      graphic: <WebDevGraphic />,
+      color: "indigo",
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: "Enterprise Software Engineering",
+      description: "Robust, secure, and high-performance systems built for business growth",
+      features: ["Custom Enterprise Apps", "System Integration", "Security Implementation", "Scalable Architecture"],
+      price: "Starting at $15,000",
+      graphic: <DigitalTransformationGraphic />,
+      color: "slate",
+    },
+    {
+      icon: <Database className="w-8 h-8" />,
+      title: "Enterprise Data Architecture",
+      description: "Advanced database solutions for modern business intelligence and operations",
+      features: ["Data Modeling & Design", "Performance Optimization", "Data Migration Services", "High-Availability Systems"],
+      price: "Starting at $8,000",
+      graphic: <PatentGraphic />,
+      color: "amber",
+    },
     {
       icon: <Code className="w-8 h-8" />,
       title: "Web Development",
@@ -47,15 +76,7 @@ export default function ServicesPage() {
       graphic: <IoTGraphic />,
       color: "blue",
     },
-    {
-      icon: <Search className="w-8 h-8" />,
-      title: "SEO & Digital Marketing",
-      description: "Boost your online presence and drive organic traffic to your business",
-      features: ["SEO Optimization", "Content Strategy", "Analytics Setup", "Performance Tracking"],
-      price: "Starting at $2,000/mo",
-      graphic: <SEOGraphic />,
-      color: "purple",
-    },
+
     {
       icon: <Palette className="w-8 h-8" />,
       title: "UI/UX Design",
@@ -64,6 +85,25 @@ export default function ServicesPage() {
       price: "Starting at $3,000",
       graphic: <DigitalTransformationGraphic />,
       color: "pink",
+    },
+    // SEO & Digital Marketing service card (commented out for future reference)
+    /*{
+      icon: <Search className="w-8 h-8" />,
+      title: "SEO & Digital Marketing",
+      description: "Boost your online presence and drive organic traffic to your business",
+      features: ["SEO Optimization", "Content Strategy", "Analytics Setup", "Performance Tracking"],
+      price: "Starting at $2,000/mo",
+      graphic: <SEOGraphic />,
+      color: "purple",
+    },*/
+    {
+      icon: <GitBranch className="w-8 h-8" />,
+      title: "DevOps Automation & CI/CD",
+      description: "Enterprise-grade deployment pipelines and automation solutions",
+      features: ["Automated Testing", "Continuous Deployment", "Infrastructure as Code", "Release Management"],
+      price: "Starting at $6,000",
+      graphic: <MechanicalGraphic />,
+      color: "rose",
     },
     {
       icon: <Cloud className="w-8 h-8" />,
