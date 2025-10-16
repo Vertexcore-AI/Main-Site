@@ -52,9 +52,9 @@ export function NavBar() {
             <motion.div
               animate={{
                 filter: [
-                  "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
-                  "drop-shadow(0 0 12px rgba(255,255,255,0.6))",
-                  "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
+                  "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
+                  "brightness(1.08) drop-shadow(0 0 8px rgba(255,255,255,0.2))",
+                  "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
                 ],
               }}
               transition={{
@@ -64,7 +64,7 @@ export function NavBar() {
               }}
               whileHover={{
                 scale: 1.05,
-                filter: "drop-shadow(0 0 16px rgba(255,255,255,0.8))",
+                filter: "brightness(1.25) drop-shadow(0 0 16px rgba(255,255,255,0.5))",
                 transition: { duration: 0.3 },
               }}
             >
@@ -74,6 +74,7 @@ export function NavBar() {
                 width={280}
                 height={70}
                 className="h-16 w-auto"
+                style={{ filter: "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))" }}
               />
             </motion.div>
           </Link>
