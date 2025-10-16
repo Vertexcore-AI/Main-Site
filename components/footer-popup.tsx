@@ -64,7 +64,7 @@ export function FooterPopup() {
   ]
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "hello@weltivation.com", href: "mailto:hello@weltivation.com" },
+    { icon: Mail, label: "Email", value: "hello@VertexCore AI.com", href: "mailto:hello@VertexCore AI.com" },
     { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
     { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" },
   ]
@@ -195,7 +195,7 @@ export function FooterPopup() {
                         <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span>
                         <span>All systems operational</span>
                       </div>
-                      <span className="text-sm text-muted-foreground">© 2025 Weltivation. All rights reserved.</span>
+                      <span className="text-sm text-muted-foreground">© 2025 VertexCore AI. All rights reserved.</span>
                     </div>
 
                     <div className="flex flex-wrap justify-center lg:justify-end gap-6">

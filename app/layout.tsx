@@ -9,7 +9,7 @@ import { BusinessProfileHeader } from "@/components/business-profile-header"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Weltivation - Transform Your Business",
+  title: "VertexCore AI - Transform Your Business",
   description: "Revolutionary technology solutions that drive growth and innovation",
     generator: 'v0.app'
 }

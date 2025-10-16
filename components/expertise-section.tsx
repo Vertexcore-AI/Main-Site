@@ -100,7 +100,7 @@ export function ExpertiseSection(): ReactElement {
             <motion.div variants={itemVariants} className="lg:col-span-8 space-y-6">
               {/* <div className="space-y-2">
                 <div className="flex items-center space-x-3">
-                  <h2 className="text-2xl font-bold">WELTIVATION™</h2>
+                  <h2 className="text-2xl font-bold">VertexCore AI™</h2>
                   <motion.div
                     className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-xs font-bold"
                     animate={{ scale: [1, 1.1, 1] }}

@@ -54,7 +54,7 @@ export default function PortfolioPage() {
       featured: true,
       testimonial: {
         quote:
-          "Working with Weltivation was a game-changer for our product. Their expertise in both hardware and software integration helped us create a seamless experience that our users love.",
+          "Working with VertexCore AI was a game-changer for our product. Their expertise in both hardware and software integration helped us create a seamless experience that our users love.",
         author: "Michael Chen",
         role: "CEO, Nicfound",
       },
@@ -79,7 +79,7 @@ export default function PortfolioPage() {
       featured: true,
       testimonial: {
         quote:
-          "The engineering precision that Weltivation brought to our product development process was exceptional. They understood our vision perfectly and delivered beyond our expectations.",
+          "The engineering precision that VertexCore AI brought to our product development process was exceptional. They understood our vision perfectly and delivered beyond our expectations.",
         author: "Sarah Johnson",
         role: "Product Director, Pufftrak",
       },
@@ -104,7 +104,7 @@ export default function PortfolioPage() {
       featured: true,
       testimonial: {
         quote:
-          "The AI capabilities that Weltivation built into our platform have transformed how our users communicate. Their technical expertise and innovative approach made all the difference.",
+          "The AI capabilities that VertexCore AI built into our platform have transformed how our users communicate. Their technical expertise and innovative approach made all the difference.",
         author: "Alex Rivera",
         role: "CTO, ChatChill",
       },
@@ -129,7 +129,7 @@ export default function PortfolioPage() {
       featured: false,
       testimonial: {
         quote:
-          "Weltivation understood the unique challenges of the music industry and built us a platform that truly serves our artists' needs. Their attention to detail and technical prowess is unmatched.",
+          "VertexCore AI understood the unique challenges of the music industry and built us a platform that truly serves our artists' needs. Their attention to detail and technical prowess is unmatched.",
         author: "Damon Wright",
         role: "Founder, Motion Records",
       },
@@ -154,7 +154,7 @@ export default function PortfolioPage() {
       featured: false,
       testimonial: {
         quote:
-          "The mobile app Weltivation developed for us has completely transformed our business model. The real-time tracking feature has been a game-changer for both our technicians and customers.",
+          "The mobile app VertexCore AI developed for us has completely transformed our business model. The real-time tracking feature has been a game-changer for both our technicians and customers.",
         author: "Lisa Hernandez",
         role: "Operations Manager, GlassPatch",
       },
@@ -179,7 +179,7 @@ export default function PortfolioPage() {
       featured: true,
       testimonial: {
         quote:
-          "Weltivation delivered a gaming platform that exceeded all our expectations. Their technical solutions for our complex tournament system were brilliant and our user base has grown exponentially.",
+          "VertexCore AI delivered a gaming platform that exceeded all our expectations. Their technical solutions for our complex tournament system were brilliant and our user base has grown exponentially.",
         author: "Marcus King",
         role: "Gaming Director, Sperm League",
       },

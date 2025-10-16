@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Architecture
 
-This is a Next.js 15 application built with TypeScript, using the App Router architecture. The project is a business profile website for "Weltivation" featuring:
+This is a Next.js 15 application built with TypeScript, using the App Router architecture. The project is a business profile website for "VertexCore AI" featuring:
 
 ### Key Technologies
 - **Framework**: Next.js 15 with App Router
