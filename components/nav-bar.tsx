@@ -73,7 +73,8 @@ export function NavBar() {
                 alt="VertexCore AI"
                 width={280}
                 height={70}
-                className="h-16 w-auto"
+                priority
+                className="h-16 w-auto object-contain"
                 style={{ filter: "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))" }}
               />
             </motion.div>
