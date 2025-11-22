@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, Monitor, Handshake, Zap } from "lucide-react"
+import { Menu, X, Monitor, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSelector } from "@/components/language-selector"
 import { useLanguage } from "@/contexts/language-context"
@@ -24,12 +24,18 @@ export function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = [
+  interface NavItem {
+    name: string
+    href: string
+    icon?: React.ReactNode
+  }
+
+  const navItems: NavItem[] = [
     { name: "Services", href: "/services" },
     { name: t("nav.projects"), href: "/projects" },
     { name: t("nav.process"), href: "/process" },
     { name: t("nav.support"), href: "/support" },
-    { name: "Partnership", href: "/partnership", icon: <Handshake className="w-4 h-4" /> },
+    { name: "Case Studies", href: "/case-studies" },
   ]
 
   const scrollToTop = () => {
@@ -73,7 +79,8 @@ export function NavBar() {
                 alt="VertexCore AI"
                 width={280}
                 height={70}
-                className="h-16 w-auto"
+                priority
+                className="h-16 w-auto object-contain"
                 style={{ filter: "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))" }}
               />
             </motion.div>
@@ -90,7 +97,7 @@ export function NavBar() {
                   pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
                 }`}
               >
-                {item.icon && item.icon}
+                {item.icon && <span className="mr-1">{item.icon}</span>}
                 <span>{item.name}</span>
               </Link>
             ))}
@@ -156,7 +163,7 @@ export function NavBar() {
                       pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
                     }`}
                   >
-                    {item.icon && item.icon}
+                    {item.icon && <span className="mr-1">{item.icon}</span>}
                     <span>{item.name}</span>
                   </Link>
                 ))}

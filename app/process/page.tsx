@@ -480,7 +480,7 @@ export default function ProcessPage() {
                 Schedule Free Consultation
               </a>
               <a
-                href="/portfolio"
+                href="/projects"
                 className="inline-flex items-center px-6 py-3 bg-background border border-border text-foreground rounded-lg hover:border-primary/50 transition-all duration-300 font-medium"
               >
                 View Our Work
