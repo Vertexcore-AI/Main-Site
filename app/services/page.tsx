@@ -36,7 +36,6 @@ export default function ServicesPage() {
       title: "AI-Powered Software Solutions",
       description: "Next-gen software built with intelligence, scalability, and precision",
       features: ["Machine Learning Integration", "AI Model Development", "Automated Workflows", "Smart Analytics"],
-      price: "Starting at $10,000",
       graphic: <WebDevGraphic />,
       color: "indigo",
     },
@@ -45,7 +44,6 @@ export default function ServicesPage() {
       title: "Enterprise Software Engineering",
       description: "Robust, secure, and high-performance systems built for business growth",
       features: ["Custom Enterprise Apps", "System Integration", "Security Implementation", "Scalable Architecture"],
-      price: "Starting at $15,000",
       graphic: <DigitalTransformationGraphic />,
       color: "slate",
     },
@@ -54,7 +52,6 @@ export default function ServicesPage() {
       title: "Enterprise Data Architecture",
       description: "Advanced database solutions for modern business intelligence and operations",
       features: ["Data Modeling & Design", "Performance Optimization", "Data Migration Services", "High-Availability Systems"],
-      price: "Starting at $8,000",
       graphic: <PatentGraphic />,
       color: "amber",
     },
@@ -63,7 +60,6 @@ export default function ServicesPage() {
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies",
       features: ["React & Next.js", "Full-Stack Development", "API Integration", "Database Design"],
-      price: "Starting at $5,000",
       graphic: <WebDevGraphic />,
       color: "emerald",
     },
@@ -72,7 +68,6 @@ export default function ServicesPage() {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications for iOS and Android",
       features: ["React Native", "iOS & Android", "App Store Deployment", "Push Notifications"],
-      price: "Starting at $8,000",
       graphic: <IoTGraphic />,
       color: "blue",
     },
@@ -82,7 +77,6 @@ export default function ServicesPage() {
       title: "UI/UX Design",
       description: "Beautiful, intuitive designs that convert visitors into customers",
       features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
-      price: "Starting at $3,000",
       graphic: <DigitalTransformationGraphic />,
       color: "pink",
     },
@@ -101,7 +95,6 @@ export default function ServicesPage() {
       title: "DevOps Automation & CI/CD",
       description: "Enterprise-grade deployment pipelines and automation solutions",
       features: ["Automated Testing", "Continuous Deployment", "Infrastructure as Code", "Release Management"],
-      price: "Starting at $6,000",
       graphic: <MechanicalGraphic />,
       color: "rose",
     },
@@ -110,7 +103,6 @@ export default function ServicesPage() {
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and deployment solutions",
       features: ["AWS/Vercel Setup", "CI/CD Pipelines", "Database Hosting", "Performance Monitoring"],
-      price: "Starting at $1,500",
       graphic: <PatentGraphic />,
       color: "cyan",
     },
@@ -119,7 +111,6 @@ export default function ServicesPage() {
       title: "E-commerce Development",
       description: "Complete online stores with payment processing and inventory management",
       features: ["Shopify/Custom", "Payment Integration", "Inventory Management", "Order Processing"],
-      price: "Starting at $7,000",
       graphic: <MechanicalGraphic />,
       color: "orange",
     },
@@ -201,8 +192,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div className={`text-${service.color}-400 font-bold text-lg`}>{service.price}</div>
+                    <div className="flex items-center justify-end">
                       <Link href="/consultation">
                         <Button
                           size="sm"
@@ -252,33 +242,7 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-gradient-to-r from-emerald-500 to-green-600 rounded-3xl p-12 text-center"
-          >
-            <h3 className="text-3xl font-bold text-black mb-4">Ready to Get Started?</h3>
-            <p className="text-black/80 text-xl mb-8">Let's discuss your project and bring your vision to life</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/consultation">
-                <Button className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg">
-                  <Zap className="w-5 h-5 mr-2" />
-                  Free Consultation
-                </Button>
-              </Link>
-              <Link href="/portfolio">
-                <Button
-                  variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg"
-                >
-                  <Globe className="w-5 h-5 mr-2" />
-                  View Portfolio
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
