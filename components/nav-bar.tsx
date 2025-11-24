@@ -32,10 +32,13 @@ export function NavBar() {
 
   const navItems: NavItem[] = [
     { name: "Services", href: "/services" },
-    { name: t("nav.projects"), href: "/projects" },
+    { name: t("Case Studies"), href: "/projects" },
     { name: t("nav.process"), href: "/process" },
     { name: t("nav.support"), href: "/support" },
-    { name: "Case Studies", href: "/case-studies" },
+    // { name: "Case Studies More", href: "/case-studies" },
+    // { name: "Portfolio", href: "/portfolio" },
+    { name: ("Projects"), href: "/projects_1" },
+    { name: ("Contanct Us"), href: "/contact" },
   ]
 
   const scrollToTop = () => {
@@ -44,9 +47,8 @@ export function NavBar() {
 
   return (
     <motion.nav
-      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/40 backdrop-blur-md border-b border-gray-800/30" : "bg-black/15 backdrop-blur-sm"
-      }`}
+      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/40 backdrop-blur-md border-b border-gray-800/30" : "bg-black/15 backdrop-blur-sm"
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -55,35 +57,17 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2" onClick={scrollToTop}>
-            <motion.div
-              animate={{
-                filter: [
-                  "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
-                  "brightness(1.08) drop-shadow(0 0 8px rgba(255,255,255,0.2))",
-                  "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
-                ],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-              whileHover={{
-                scale: 1.05,
-                filter: "brightness(1.25) drop-shadow(0 0 16px rgba(255,255,255,0.5))",
-                transition: { duration: 0.3 },
-              }}
-            >
+            <div>
               <Image
                 src="/images/newlogo.png"
                 alt="VertexCore AI"
-                width={280}
-                height={70}
+                width={400}
+                height={100}
                 priority
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
                 style={{ filter: "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))" }}
               />
-            </motion.div>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -93,9 +77,8 @@ export function NavBar() {
                 key={item.name}
                 href={item.href}
                 onClick={scrollToTop}
-                className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${
-                  pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
-                }`}
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
+                  }`}
               >
                 {item.icon && <span className="mr-1">{item.icon}</span>}
                 <span>{item.name}</span>
@@ -142,9 +125,8 @@ export function NavBar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className={`lg:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-gray-800 ${
-                scrolled ? "bg-black/70" : "bg-black/30"
-              }`}
+              className={`lg:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-gray-800 ${scrolled ? "bg-black/70" : "bg-black/30"
+                }`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -159,9 +141,8 @@ export function NavBar() {
                       setIsOpen(false)
                       scrollToTop()
                     }}
-                    className={`flex items-center space-x-2 text-base font-medium transition-colors duration-200 ${
-                      pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
-                    }`}
+                    className={`flex items-center space-x-2 text-base font-medium transition-colors duration-200 ${pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
+                      }`}
                   >
                     {item.icon && <span className="mr-1">{item.icon}</span>}
                     <span>{item.name}</span>

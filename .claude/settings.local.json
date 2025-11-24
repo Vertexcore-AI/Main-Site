@@ -47,7 +47,10 @@
       "mcp__filesystem__edit_file",
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_click",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(for f in *.PNG)",
+      "Bash(do echo \"$f:\")",
+      "Bash(done)"
     ]
   },
   "enableAllProjectMcpServers": true,

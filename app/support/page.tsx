@@ -1,15 +1,14 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
-import { Shield, Headphones, Zap, CheckCircle, Mail, Phone, MessageSquare } from "lucide-react"
+import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function SupportPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       <NavBar />
 
       {/* Hero Section */}
@@ -34,7 +33,7 @@ export default function SupportPage() {
       {/* How We Support Section */}
       <section className="px-4 pb-20">
         <div className="max-w-6xl mx-auto">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -46,9 +45,9 @@ export default function SupportPage() {
             <p className="text-gray-400 max-w-2xl mx-auto">
               Professional support packages designed to keep your software secure, performant, and always available.
             </p>
-          </motion.div>
+          </motion.div> */}
 
-          <div className="grid md:grid-cols-3 gap-6 mb-20">
+          <div className="flex justify-center mb-20">
             {/* Standard Maintenance */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -56,11 +55,11 @@ export default function SupportPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-7 h-7 text-white" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                <img src="/images/3D-Icons/shield.png" alt="Shield" className="w-full h-full object-contain" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Standard Maintenance</h3>
-              <p className="text-gray-400 mb-6">Essential support for keeping your application secure and running smoothly.</p>
+              <h3 className="text-2xl font-bold text-white mb-3 text-center">Standard Maintenance</h3>
+              <p className="text-gray-400 mb-6">We keep your application secure and running smoothly.</p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -70,23 +69,29 @@ export default function SupportPage() {
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">Uptime monitoring</span>
                 </div>
-                <div className="flex items-start space-x-3">
+              <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Bug fixes</span>
+                  <span className="text-gray-300">Priority bug fixes</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">Email support (48hr response)</span>
                 </div>
+                   <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-300">99.99% uptime guarantee</span>
+                </div>
               </div>
+             
               <div className="pt-4 border-t border-gray-700">
-                <p className="text-sm text-gray-500">Starting at</p>
-                <p className="text-3xl font-bold text-white">$299<span className="text-lg text-gray-400">/mo</span></p>
+                <p className="text-sm text-gray-500">Free</p>
+             
               </div>
+              
             </motion.div>
 
             {/* Dedicated Team */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -128,10 +133,10 @@ export default function SupportPage() {
                 <p className="text-sm text-gray-500">Starting at</p>
                 <p className="text-3xl font-bold text-white">$999<span className="text-lg text-gray-400">/mo</span></p>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Enterprise SLA */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -168,7 +173,7 @@ export default function SupportPage() {
                 <p className="text-sm text-gray-500">Custom pricing</p>
                 <p className="text-3xl font-bold text-white">Contact Us</p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>
@@ -200,8 +205,8 @@ export default function SupportPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-7 h-7 text-white" />
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <img src="/images/3D-Icons/e-mails.png" alt="Email" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Email Support</h3>
               <p className="text-gray-400 mb-4">Get detailed help via email</p>
@@ -218,8 +223,8 @@ export default function SupportPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-7 h-7 text-white" />
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <img src="/images/3D-Icons/chat.png" alt="Chat" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Live Chat</h3>
               <p className="text-gray-400 mb-4">Chat with our team instantly</p>
@@ -236,8 +241,8 @@ export default function SupportPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-7 h-7 text-white" />
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <img src="/images/3D-Icons/phone.png" alt="Phone" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Phone Support</h3>
               <p className="text-gray-400 mb-4">Speak directly with experts</p>

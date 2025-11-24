@@ -43,7 +43,7 @@ export default function Home() {
             />
           </div>
           <div className="relative z-1 text-center space-y-6">
-           
+
 
             {/* Enhanced hero with better contrast */}
             <div className="relative mt-16">
@@ -180,7 +180,7 @@ export default function Home() {
                   </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center max-w-2xl">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center max-w-2xl">
                   <div className="flex flex-col items-center space-y-2">
                     <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
                       <span className="text-primary font-bold text-sm">1</span>
@@ -199,7 +199,7 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-muted-foreground">Expert guidance</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           </div>

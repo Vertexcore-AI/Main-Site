@@ -47,14 +47,14 @@ export default function ServicesPage() {
       graphic: <DigitalTransformationGraphic />,
       color: "slate",
     },
-    {
-      icon: <Database className="w-8 h-8" />,
-      title: "Enterprise Data Architecture",
-      description: "Advanced database solutions for modern business intelligence and operations",
-      features: ["Data Modeling & Design", "Performance Optimization", "Data Migration Services", "High-Availability Systems"],
-      graphic: <PatentGraphic />,
-      color: "amber",
-    },
+    // {
+    //   icon: <Database className="w-8 h-8" />,
+    //   title: "Enterprise Data Architecture",
+    //   description: "Advanced database solutions for modern business intelligence and operations",
+    //   features: ["Data Modeling & Design", "Performance Optimization", "Data Migration Services", "High-Availability Systems"],
+    //   graphic: <PatentGraphic />,
+    //   color: "amber",
+    // },
     {
       icon: <Code className="w-8 h-8" />,
       title: "Web Development",
@@ -72,14 +72,14 @@ export default function ServicesPage() {
       color: "blue",
     },
 
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "UI/UX Design",
-      description: "Beautiful, intuitive designs that convert visitors into customers",
-      features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
-      graphic: <DigitalTransformationGraphic />,
-      color: "pink",
-    },
+    // {
+    //   icon: <Palette className="w-8 h-8" />,
+    //   title: "UI/UX Design",
+    //   description: "Beautiful, intuitive designs that convert visitors into customers",
+    //   features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
+    //   graphic: <DigitalTransformationGraphic />,
+    //   color: "pink",
+    // },
     // SEO & Digital Marketing service card (commented out for future reference)
     /*{
       icon: <Search className="w-8 h-8" />,
@@ -90,22 +90,22 @@ export default function ServicesPage() {
       graphic: <SEOGraphic />,
       color: "purple",
     },*/
-    {
-      icon: <GitBranch className="w-8 h-8" />,
-      title: "DevOps Automation & CI/CD",
-      description: "Enterprise-grade deployment pipelines and automation solutions",
-      features: ["Automated Testing", "Continuous Deployment", "Infrastructure as Code", "Release Management"],
-      graphic: <MechanicalGraphic />,
-      color: "rose",
-    },
-    {
-      icon: <Cloud className="w-8 h-8" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment solutions",
-      features: ["AWS/Vercel Setup", "CI/CD Pipelines", "Database Hosting", "Performance Monitoring"],
-      graphic: <PatentGraphic />,
-      color: "cyan",
-    },
+    // {
+    //   icon: <GitBranch className="w-8 h-8" />,
+    //   title: "DevOps Automation & CI/CD",
+    //   description: "Enterprise-grade deployment pipelines and automation solutions",
+    //   features: ["Automated Testing", "Continuous Deployment", "Infrastructure as Code", "Release Management"],
+    //   graphic: <MechanicalGraphic />,
+    //   color: "rose",
+    // },
+    // {
+    //   icon: <Cloud className="w-8 h-8" />,
+    //   title: "Cloud Solutions",
+    //   description: "Scalable cloud infrastructure and deployment solutions",
+    //   features: ["AWS/Vercel Setup", "CI/CD Pipelines", "Database Hosting", "Performance Monitoring"],
+    //   graphic: <PatentGraphic />,
+    //   color: "cyan",
+    // },
     {
       icon: <ShoppingCart className="w-8 h-8" />,
       title: "E-commerce Development",
@@ -140,7 +140,7 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       <NavBar />
 
       {/* Hero Section */}

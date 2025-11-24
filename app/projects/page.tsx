@@ -63,20 +63,7 @@ const projects = [
     ],
     technologies: ["Laravel", "Blade Files", "MySQL Database", "Python (Analytics)", "Chatbase.co (Chatbot Training)"],
   },
-  {
-    id: "pos-supermarket",
-    name: "POS Supermarket System",
-    description:
-      "Advanced point-of-sale system for supermarkets with real-time inventory and sales management. Built with Laravel and Livewire for dynamic, real-time interactions, this system provides seamless checkout experiences, inventory management, supplier tracking, and sales analytics.",
-    image: "/images/POS-supermarket/pos.png",
-    features: [
-      "Real-time POS with inventory synchronization",
-      "Livewire for dynamic, reactive user interface",
-      "Python analytics engine for sales forecasting",
-      "Multi-user system with role-based access",
-    ],
-    technologies: ["Laravel", "Blade Files", "Livewire", "Python", "MySQL Database"],
-  },
+
   {
     id: "villa-booking",
     name: "Villa Booking System",

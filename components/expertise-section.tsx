@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import type { ReactElement } from "react";
 import { DashboardChart } from "@/components/dashboard-chart";
 
@@ -25,6 +26,108 @@ import {
   Laptop,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
+function TypingMissionText(): ReactElement {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [displayText, setDisplayText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const [isComplete, setIsComplete] = useState(false);
+
+  const fullText = "We are an AI-first Software Design Team on a Mission to Leverage Artificial Intelligence and Machine Learning to Make Operations Efficient and Error-free for Smart Thinking Businesses.";
+  const typingSpeed = 30;
+
+  // Keywords to highlight with their colors
+  const highlights = [
+    { text: "Artificial Intelligence", color: "text-emerald-400", glow: "drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]" },
+    { text: "Machine Learning", color: "text-blue-400", glow: "drop-shadow-[0_0_20px_rgba(96,165,250,0.5)]" },
+    { text: "Efficient", color: "text-orange-400", glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]" },
+    { text: "Error-free", color: "text-orange-400", glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]" },
+  ];
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let charIndex = 0;
+    const interval = setInterval(() => {
+      if (charIndex < fullText.length) {
+        setDisplayText(fullText.substring(0, charIndex + 1));
+        charIndex++;
+      } else {
+        clearInterval(interval);
+        setIsComplete(true);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(interval);
+  }, [isInView]);
+
+  // Cursor blinking
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  // Function to render text with highlights
+  const renderHighlightedText = (text: string) => {
+    let result: React.ReactNode[] = [];
+    let remainingText = text;
+    let key = 0;
+
+    while (remainingText.length > 0) {
+      let foundHighlight = false;
+
+      for (const highlight of highlights) {
+        const index = remainingText.indexOf(highlight.text);
+        if (index === 0) {
+          // Highlight starts at the beginning
+          result.push(
+            <span key={key++} className={`${highlight.color} ${highlight.glow}`}>
+              {highlight.text}
+            </span>
+          );
+          remainingText = remainingText.substring(highlight.text.length);
+          foundHighlight = true;
+          break;
+        } else if (index > 0) {
+          // There's text before the highlight
+          result.push(<span key={key++} className="text-white">{remainingText.substring(0, index)}</span>);
+          result.push(
+            <span key={key++} className={`${highlight.color} ${highlight.glow}`}>
+              {highlight.text}
+            </span>
+          );
+          remainingText = remainingText.substring(index + highlight.text.length);
+          foundHighlight = true;
+          break;
+        }
+      }
+
+      if (!foundHighlight) {
+        // No more highlights found, add remaining text
+        result.push(<span key={key++} className="text-white">{remainingText}</span>);
+        break;
+      }
+    }
+
+    return result;
+  };
+
+  return (
+    <h3 ref={ref} className="text-3xl sm:text-4xl font-bold leading-tight">
+      {renderHighlightedText(displayText)}
+      {!isComplete && showCursor && (
+        <motion.span
+          className="inline-block w-1 h-8 bg-emerald-400 ml-1 align-middle"
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+        />
+      )}
+    </h3>
+  );
+}
 
 export function ExpertiseSection(): ReactElement {
   const ref = useRef(null);
@@ -78,31 +181,17 @@ export function ExpertiseSection(): ReactElement {
         >
           {/* Section header with 0-0 to 0-1 animation */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <motion.div variants={itemVariants} className="lg:col-span-4">
-              <div
-                ref={zeroOneRef}
-                className="text-[120px] sm:text-[180px] font-bold leading-none text-primary/80 relative"
+            <div className="lg:col-span-4">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-contain"
               >
-                0-
-                {showOne ? (
-                  <motion.span
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    1
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    0
-                  </motion.span>
-                )}
-              </div>
-            </motion.div>
+                <source src="/videos/logo_vid.mp4" type="video/mp4" />
+              </video>
+            </div>
 
             <motion.div
               variants={itemVariants}
@@ -125,18 +214,68 @@ export function ExpertiseSection(): ReactElement {
                 </div>
               </div> */}
 
-              <h3 className="text-3xl sm:text-4xl font-bold leading-tight">
-                We help brands grow with strategic design that's thoughtful,
-                visually bold, and built to make an impression.
-              </h3>
+              <TypingMissionText />
             </motion.div>
           </div>
 
           {/* First row of cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {/* Card 1: Enhanced Service Selection Interface */}
+            {/* Card 1: Video Card */}
             <motion.div variants={itemVariants} className="group">
-              <ServiceSelectionCard />
+              <div className="h-full min-h-[400px] rounded-lg border border-border bg-background/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative">
+                <div className="absolute top-6 right-6 z-10">
+                  <ArrowUpRight className="w-5 h-5 text-white group-hover:text-primary transition-colors" />
+                </div>
+
+                {/* Background Video */}
+                <div className="absolute inset-0">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                    onLoadStart={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      video.play().catch(() => {
+                        console.log(
+                          "Video autoplay failed, user interaction required"
+                        );
+                      });
+                    }}
+                  >
+                    <source
+                      src="/videos/video-rec.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div className="absolute inset-0 bg-black/50"></div>
+                </div>
+
+                {/* Content Overlay */}
+                <div className="relative z-10 p-6 h-full flex flex-col justify-between">
+                  <div>
+                    <Badge
+                      variant="outline"
+                      className="bg-background/20 text-white border-white/20 mb-4"
+                    >
+                      VERTEXCORE AI
+                    </Badge>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-white leading-snug">
+                      Revolutionizing Intelligence — Building the Future of AI
+                      Innovation
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      Experience the evolution of artificial intelligence and
+                      digital transformation with VertexCore AI — where
+                      technology meets precision, performance, and innovation.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Card 2: Enhanced 45% stat with viewport trigger */}
@@ -217,9 +356,9 @@ export function ExpertiseSection(): ReactElement {
               </div>
             </motion.div> */}
 
-            {/* Card 3: GlassPatch with working video */}
+            {/* Card 2: GlassPatch with working video */}
             <motion.div variants={itemVariants} className="group">
-              <div className="h-full rounded-lg border border-border bg-background/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative">
+              <div className="h-full min-h-[400px] rounded-lg border border-border bg-background/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative">
                 <div className="absolute top-6 right-6 z-10">
                   <ArrowUpRight className="w-5 h-5 text-white group-hover:text-primary transition-colors" />
                 </div>
@@ -467,9 +606,8 @@ function AnimatedTimelineChart(): ReactElement {
         >
           {/* Circle marker */}
           <motion.div
-            className={`w-5 h-5 rounded-full border-2 border-background relative z-10 transition-colors duration-500 ${
-              index <= activeStage ? "bg-primary" : "bg-muted/50"
-            }`}
+            className={`w-5 h-5 rounded-full border-2 border-background relative z-10 transition-colors duration-500 ${index <= activeStage ? "bg-primary" : "bg-muted/50"
+              }`}
             animate={index === activeStage ? { scale: [1, 1.3, 1] } : {}}
             transition={{ duration: 0.5 }}
           />
@@ -477,11 +615,10 @@ function AnimatedTimelineChart(): ReactElement {
           {/* Stage label above */}
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-center">
             <motion.div
-              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-500 ${
-                index <= activeStage
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted/50 text-muted-foreground"
-              }`}
+              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-500 ${index <= activeStage
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted/50 text-muted-foreground"
+                }`}
             >
               {stage.name}
             </motion.div>
@@ -884,9 +1021,8 @@ Submitted at: ${new Date().toLocaleString()}
 
       // This would typically be handled by a server endpoint
       // For now, we'll use mailto as a fallback
-      const mailtoLink = `mailto:andrdyer@gmail.com?subject=New Consultation Inquiry - ${
-        selectedServiceData?.name
-      }&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = `mailto:andrdyer@gmail.com?subject=New Consultation Inquiry - ${selectedServiceData?.name
+        }&body=${encodeURIComponent(emailBody)}`;
       window.open(mailtoLink);
     } catch (error) {
       console.error("Error sending inquiry:", error);

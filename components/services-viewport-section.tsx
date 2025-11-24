@@ -1,8 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
+import { gsap } from "gsap"
+import Carousel3D from "@/components/carousel-3d"
 import {
   Globe,
   Smartphone,
@@ -16,18 +18,13 @@ import {
   Users,
   Award,
   Zap,
-  Shield,
   Rocket,
   Target,
-  BarChart,
   Lightbulb,
-  Layers,
-  Code,
   Database,
   Cloud,
   Lock,
   Gauge,
-  Activity,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
@@ -41,7 +38,7 @@ const services = [
     icon: <Globe className="w-8 h-8" />,
     features: [
       { icon: <Rocket className="w-5 h-5" />, text: "Lightning-fast loading speeds" },
-      { icon: <Shield className="w-5 h-5" />, text: "Enterprise-grade security" },
+
       { icon: <Target className="w-5 h-5" />, text: "Conversion-optimized design" },
       { icon: <Gauge className="w-5 h-5" />, text: "99.9% uptime guarantee" },
     ],
@@ -71,7 +68,6 @@ const services = [
       { icon: <Users className="w-5 h-5" />, text: "Cross-platform compatibility" },
       { icon: <Zap className="w-5 h-5" />, text: "Real-time synchronization" },
       { icon: <Lock className="w-5 h-5" />, text: "Advanced security features" },
-      { icon: <BarChart className="w-5 h-5" />, text: "Built-in analytics" },
     ],
     stats: [
       { label: "App Store Rating", value: "4.8★" },
@@ -100,7 +96,6 @@ const services = [
       { icon: <Cog className="w-5 h-5" />, text: "Workflow automation" },
       { icon: <Database className="w-5 h-5" />, text: "Data integration" },
       { icon: <Cloud className="w-5 h-5" />, text: "Cloud-native architecture" },
-      { icon: <Layers className="w-5 h-5" />, text: "API-first design" },
     ],
     stats: [
       { label: "Efficiency Increase", value: "250%" },
@@ -251,7 +246,7 @@ export function ServicesViewportSection() {
     <section ref={containerRef} className="relative py-20 px-4 sm:px-6 bg-black overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
+        <div className="absolute inset-0 bg-black" />
         <motion.div
           className="absolute inset-0 opacity-5"
           animate={{
@@ -286,7 +281,7 @@ export function ServicesViewportSection() {
               className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
                 activeService === index
                   ? "bg-white scale-125 shadow-lg"
-                  : "bg-white/30 hover:bg-white/60 hover:scale-110"
+                  : "bg-white/30 hover:bg-white/60 hover:scale-105"
               }`}
             >
               {/* Tooltip */}
@@ -505,133 +500,166 @@ function ServiceUIGraphic({ service, index }: { service: any; index: number }) {
   )
 }
 
-function WebsiteUIGraphic({ service }: { service: any }) {
-  const [activeImageIndex, setActiveImageIndex] = useState(0)
+// Magic Bento Helper Functions
+const createParticleElement = (x: number, y: number, color: string = "255, 255, 255"): HTMLDivElement => {
+  const el = document.createElement("div")
+  el.className = "particle"
+  el.style.cssText = `
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(${color}, 1);
+    box-shadow: 0 0 6px rgba(${color}, 0.6);
+    pointer-events: none;
+    z-index: 100;
+    left: ${x}px;
+    top: ${y}px;
+  `
+  return el
+}
 
-  const templateImages = [
-    { img: "/images/Template_ss/Cosmetics.PNG", title: "Cosmetics Template", url: "cosmetics-store.com" },
-    { img: "/images/Template_ss/Hotel.PNG", title: "Hotel Template", url: "luxury-hotel.com" },
-    { img: "/images/Template_ss/ice.PNG", title: "Ice Cream Template", url: "ice-cream-shop.com" },
-  ]
+// Particle Card Component
+const ParticleCard: React.FC<{
+  children: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+  particleCount?: number
+  glowColor?: string
+}> = ({ children, className = "", style, particleCount = 8, glowColor = "255, 255, 255" }) => {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const particlesRef = useRef<HTMLDivElement[]>([])
+  const timeoutsRef = useRef<NodeJS.Timeout[]>([])
+  const isHoveredRef = useRef(false)
+  const memoizedParticles = useRef<HTMLDivElement[]>([])
+  const particlesInitialized = useRef(false)
 
-  const handlePrevImage = () => {
-    setActiveImageIndex((prev) => (prev === 0 ? templateImages.length - 1 : prev - 1))
-  }
+  const initializeParticles = useCallback(() => {
+    if (particlesInitialized.current || !cardRef.current) return
 
-  const handleNextImage = () => {
-    setActiveImageIndex((prev) => (prev === templateImages.length - 1 ? 0 : prev + 1))
-  }
+    const { width, height } = cardRef.current.getBoundingClientRect()
+    memoizedParticles.current = Array.from({ length: particleCount }, () =>
+      createParticleElement(Math.random() * width, Math.random() * height, glowColor)
+    )
+    particlesInitialized.current = true
+  }, [particleCount, glowColor])
+
+  const clearAllParticles = useCallback(() => {
+    timeoutsRef.current.forEach(clearTimeout)
+    timeoutsRef.current = []
+
+    particlesRef.current.forEach((particle) => {
+      gsap.to(particle, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "back.in(1.7)",
+        onComplete: () => {
+          particle.parentNode?.removeChild(particle)
+        },
+      })
+    })
+    particlesRef.current = []
+  }, [])
+
+  const animateParticles = useCallback(() => {
+    if (!cardRef.current || !isHoveredRef.current) return
+
+    if (!particlesInitialized.current) {
+      initializeParticles()
+    }
+
+    memoizedParticles.current.forEach((particle, index) => {
+      const timeoutId = setTimeout(() => {
+        if (!isHoveredRef.current || !cardRef.current) return
+
+        const clone = particle.cloneNode(true) as HTMLDivElement
+        cardRef.current.appendChild(clone)
+        particlesRef.current.push(clone)
+
+        gsap.fromTo(clone, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.7)" })
+
+        gsap.to(clone, {
+          x: (Math.random() - 0.5) * 100,
+          y: (Math.random() - 0.5) * 100,
+          rotation: Math.random() * 360,
+          duration: 2 + Math.random() * 2,
+          ease: "none",
+          repeat: -1,
+          yoyo: true,
+        })
+
+        gsap.to(clone, {
+          opacity: 0.3,
+          duration: 1.5,
+          ease: "power2.inOut",
+          repeat: -1,
+          yoyo: true,
+        })
+      }, index * 100)
+
+      timeoutsRef.current.push(timeoutId)
+    })
+  }, [initializeParticles])
+
+  useEffect(() => {
+    if (!cardRef.current) return
+
+    const element = cardRef.current
+
+    const handleMouseEnter = () => {
+      isHoveredRef.current = true
+      animateParticles()
+    }
+
+    const handleMouseLeave = () => {
+      isHoveredRef.current = false
+      clearAllParticles()
+    }
+
+    element.addEventListener("mouseenter", handleMouseEnter)
+    element.addEventListener("mouseleave", handleMouseLeave)
+
+    return () => {
+      isHoveredRef.current = false
+      element.removeEventListener("mouseenter", handleMouseEnter)
+      element.removeEventListener("mouseleave", handleMouseLeave)
+      clearAllParticles()
+    }
+  }, [animateParticles, clearAllParticles])
 
   return (
-    <div className="space-y-2">
-      {/* Interactive Browser Window with Template Showcase */}
-      <div className="bg-gray-100 rounded-lg overflow-hidden shadow-xl scale-105">
-        {/* Browser Chrome */}
-        <div className="flex items-center space-x-2 px-2 py-2 bg-gray-200">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          <div className="flex-1 bg-white rounded px-3 py-1 ml-4 shadow-inner">
-            <span className="text-xs text-gray-600">https://{templateImages[activeImageIndex].url}</span>
-          </div>
-          <div className="flex space-x-1">
-            <div className="w-4 h-4 bg-gray-300 rounded hover:bg-gray-400 transition-colors"></div>
-            <div className="w-4 h-4 bg-gray-300 rounded hover:bg-gray-400 transition-colors"></div>
-          </div>
-        </div>
+    <div ref={cardRef} className={`${className} relative overflow-hidden`} style={{ ...style, position: "relative", overflow: "hidden" }}>
+      {children}
+    </div>
+  )
+}
 
-        {/* Browser Viewport with Template Images */}
-        <div className="relative min-h-[200px] flex items-center justify-center overflow-hidden">
-          <motion.img
-            key={activeImageIndex}
-            src={templateImages[activeImageIndex].img}
-            alt={templateImages[activeImageIndex].title}
-            className="w-full h-full object-contain"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.3 }}
-          />
+function WebsiteUIGraphic({ service }: { service: any }) {
+  const images = [
+    "/images/Template_ss/Cosmetics.PNG",
+    "/images/Template_ss/Hotel.PNG",
+    "/images/Template_ss/ice.PNG",
+    "/images/Template_ss/Resturant_1.PNG",
+       "/images/Template_ss/Resturant_2.PNG",
+    "/images/Template_ss/travel.PNG",
+    "/images/Template_ss/GYM.PNG",
+     "/images/Template_ss/Ecom.PNG",
+       "/images/Template_ss/Dental.PNG",
+  ]
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={handlePrevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group z-10"
-          >
-            <motion.div
-              animate={{ x: [-2, 0, -2] }}
-              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            >
-              <ArrowRight className="w-5 h-5 text-white rotate-180" />
-            </motion.div>
-          </button>
-
-          <button
-            onClick={handleNextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group z-10"
-          >
-            <motion.div
-              animate={{ x: [-2, 0, -2] }}
-              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            >
-              <ArrowRight className="w-5 h-5 text-white" />
-            </motion.div>
-          </button>
-
-          {/* Image Indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-            {templateImages.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveImageIndex(idx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  idx === activeImageIndex ? "bg-white w-8" : "bg-white/50 hover:bg-white/70"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Bounce Cards - Template Showcase
-      <div className="grid grid-cols-3 gap-4">
-        {[
-          { img: "/images/Template_ss/Cosmetics.PNG", title: "Cosmetics" },
-          { img: "/images/Template_ss/Hotel.PNG", title: "Hotel" },
-          { img: "/images/Template_ss/ice.PNG", title: "Ice Cream" },
-        ].map((card, idx) => (
-          <motion.div
-            key={idx}
-            className="group relative bg-gray-50 rounded-lg overflow-hidden shadow-md cursor-pointer"
-            whileHover={{ y: -10, scale: 1.05 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            }}
-          >
-            <div className="aspect-video relative overflow-hidden">
-              <motion.img
-                src={card.img}
-                alt={card.title}
-                className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <motion.div
-              className="p-3 text-center"
-              initial={{ opacity: 0.8 }}
-              whileHover={{ opacity: 1 }}
-            >
-              <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                {card.title}
-              </span>
-            </motion.div>
-          </motion.div>
-        ))}
-      </div> */}
+  return (
+    <div className="w-full h-[400px]">
+      <Carousel3D
+        images={images}
+        imageWidth={430}
+        imageHeight={450}
+        rotateSpeed={35}
+        pauseOnHover={true}
+        translateZ={600}
+        borderRadius={8}
+        pauseDuration={3}
+      />
     </div>
   )
 }

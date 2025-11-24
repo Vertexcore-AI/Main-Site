@@ -34,7 +34,7 @@ export default function ProcessPage() {
       id: "discovery",
       title: "Discovery & Planning",
       duration: "1-2 weeks",
-      icon: <MessageCircle className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/chat.png" alt="Discovery" className="w-10 h-10 object-contain" />,
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
@@ -58,7 +58,7 @@ export default function ProcessPage() {
       id: "design",
       title: "Design & Prototyping",
       duration: "2-3 weeks",
-      icon: <Search className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/Globe.png" alt="Design" className="w-10 h-10 object-contain" />,
       color: "text-purple-500",
       bgColor: "bg-purple-500/10",
       borderColor: "border-purple-500/20",
@@ -82,7 +82,7 @@ export default function ProcessPage() {
       id: "development",
       title: "Development & Integration",
       duration: "4-12 weeks",
-      icon: <Code className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/laptop.png" alt="Development" className="w-10 h-10 object-contain" />,
       color: "text-green-500",
       bgColor: "bg-green-500/10",
       borderColor: "border-green-500/20",
@@ -106,7 +106,7 @@ export default function ProcessPage() {
       id: "testing",
       title: "Testing & Quality Assurance",
       duration: "1-2 weeks",
-      icon: <TestTube className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/shield.png" alt="Testing" className="w-10 h-10 object-contain" />,
       color: "text-orange-500",
       bgColor: "bg-orange-500/10",
       borderColor: "border-orange-500/20",
@@ -130,7 +130,7 @@ export default function ProcessPage() {
       id: "deployment",
       title: "Deployment & Launch",
       duration: "1 week",
-      icon: <Rocket className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/3dicons-rocket-dynamic-color.png" alt="Deployment" className="w-10 h-10 object-contain" />,
       color: "text-red-500",
       bgColor: "bg-red-500/10",
       borderColor: "border-red-500/20",
@@ -154,7 +154,7 @@ export default function ProcessPage() {
       id: "support",
       title: "Support & Maintenance",
       duration: "Ongoing",
-      icon: <LifeBuoy className="w-6 h-6" />,
+      icon: <img src="/images/3D-Icons/phone.png" alt="Support" className="w-10 h-10 object-contain" />,
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/20",
@@ -403,7 +403,7 @@ export default function ProcessPage() {
           </motion.div>
 
           {/* Tools & Technologies */}
-          <motion.div
+          {/* <motion.div
             className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -432,10 +432,10 @@ export default function ProcessPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Success Metrics */}
-          <motion.div
+          {/* <motion.div
             className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -457,7 +457,7 @@ export default function ProcessPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* CTA Section */}
           <motion.div
