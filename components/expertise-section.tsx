@@ -34,15 +34,32 @@ function TypingMissionText(): ReactElement {
   const [showCursor, setShowCursor] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
 
-  const fullText = "We are an AI-first Software Design Team on a Mission to Leverage Artificial Intelligence and Machine Learning to Make Operations Efficient and Error-free for Smart Thinking Businesses.";
+  const fullText =
+    "We are an AI-first Software Design Team on a Mission to Leverage Artificial Intelligence and Machine Learning to Make Operations Efficient and Error-free for Smart Thinking Businesses.";
   const typingSpeed = 30;
 
   // Keywords to highlight with their colors
   const highlights = [
-    { text: "Artificial Intelligence", color: "text-emerald-400", glow: "drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]" },
-    { text: "Machine Learning", color: "text-blue-400", glow: "drop-shadow-[0_0_20px_rgba(96,165,250,0.5)]" },
-    { text: "Efficient", color: "text-orange-400", glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]" },
-    { text: "Error-free", color: "text-orange-400", glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]" },
+    {
+      text: "Artificial Intelligence",
+      color: "text-emerald-400",
+      glow: "drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]",
+    },
+    {
+      text: "Machine Learning",
+      color: "text-blue-400",
+      glow: "drop-shadow-[0_0_20px_rgba(96,165,250,0.5)]",
+    },
+    {
+      text: "Efficient",
+      color: "text-orange-400",
+      glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]",
+    },
+    {
+      text: "Error-free",
+      color: "text-orange-400",
+      glow: "drop-shadow-[0_0_20px_rgba(251,146,60,0.5)]",
+    },
   ];
 
   useEffect(() => {
@@ -84,7 +101,10 @@ function TypingMissionText(): ReactElement {
         if (index === 0) {
           // Highlight starts at the beginning
           result.push(
-            <span key={key++} className={`${highlight.color} ${highlight.glow}`}>
+            <span
+              key={key++}
+              className={`${highlight.color} ${highlight.glow}`}
+            >
               {highlight.text}
             </span>
           );
@@ -93,13 +113,22 @@ function TypingMissionText(): ReactElement {
           break;
         } else if (index > 0) {
           // There's text before the highlight
-          result.push(<span key={key++} className="text-white">{remainingText.substring(0, index)}</span>);
           result.push(
-            <span key={key++} className={`${highlight.color} ${highlight.glow}`}>
+            <span key={key++} className="text-white">
+              {remainingText.substring(0, index)}
+            </span>
+          );
+          result.push(
+            <span
+              key={key++}
+              className={`${highlight.color} ${highlight.glow}`}
+            >
               {highlight.text}
             </span>
           );
-          remainingText = remainingText.substring(index + highlight.text.length);
+          remainingText = remainingText.substring(
+            index + highlight.text.length
+          );
           foundHighlight = true;
           break;
         }
@@ -107,7 +136,11 @@ function TypingMissionText(): ReactElement {
 
       if (!foundHighlight) {
         // No more highlights found, add remaining text
-        result.push(<span key={key++} className="text-white">{remainingText}</span>);
+        result.push(
+          <span key={key++} className="text-white">
+            {remainingText}
+          </span>
+        );
         break;
       }
     }
@@ -244,10 +277,7 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source
-                      src="/videos/video-rec.mp4"
-                      type="video/mp4"
-                    />
+                    <source src="/videos/video-rec.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
@@ -380,10 +410,7 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source
-                      src="/videos/video-rec.mp4"
-                      type="video/mp4"
-                    />
+                    <source src="/videos/oilspill.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
@@ -401,13 +428,13 @@ export function ExpertiseSection(): ReactElement {
 
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-white leading-snug">
-                      Revolutionizing Intelligence — Building the Future of AI
-                      Innovation
+                      Transforming Vision — Shaping the Future of Intelligent
+                      Systems
                     </h3>
                     <p className="text-sm text-white/80">
-                      Experience the evolution of artificial intelligence and
-                      digital transformation with VertexCore AI — where
-                      technology meets precision, performance, and innovation.
+                      Explore the evolution of computer vision and AI
+                      technologies with VertexCore AI — where innovation meets
+                      accuracy, performance, and transformative insights.
                     </p>
                   </div>
                 </div>
@@ -606,8 +633,9 @@ function AnimatedTimelineChart(): ReactElement {
         >
           {/* Circle marker */}
           <motion.div
-            className={`w-5 h-5 rounded-full border-2 border-background relative z-10 transition-colors duration-500 ${index <= activeStage ? "bg-primary" : "bg-muted/50"
-              }`}
+            className={`w-5 h-5 rounded-full border-2 border-background relative z-10 transition-colors duration-500 ${
+              index <= activeStage ? "bg-primary" : "bg-muted/50"
+            }`}
             animate={index === activeStage ? { scale: [1, 1.3, 1] } : {}}
             transition={{ duration: 0.5 }}
           />
@@ -615,10 +643,11 @@ function AnimatedTimelineChart(): ReactElement {
           {/* Stage label above */}
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-center">
             <motion.div
-              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-500 ${index <= activeStage
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted/50 text-muted-foreground"
-                }`}
+              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-500 ${
+                index <= activeStage
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted/50 text-muted-foreground"
+              }`}
             >
               {stage.name}
             </motion.div>
@@ -1021,8 +1050,9 @@ Submitted at: ${new Date().toLocaleString()}
 
       // This would typically be handled by a server endpoint
       // For now, we'll use mailto as a fallback
-      const mailtoLink = `mailto:andrdyer@gmail.com?subject=New Consultation Inquiry - ${selectedServiceData?.name
-        }&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = `mailto:andrdyer@gmail.com?subject=New Consultation Inquiry - ${
+        selectedServiceData?.name
+      }&body=${encodeURIComponent(emailBody)}`;
       window.open(mailtoLink);
     } catch (error) {
       console.error("Error sending inquiry:", error);
