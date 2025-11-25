@@ -37,7 +37,7 @@ export default function ContactPage() {
     {
       icon: "/images/3D-Icons/map.png",
       title: "Address",
-      value: "No 108 Mullegama,Ambatenna",
+      value: "No 108 Mullegama,Ambatenna (Kandy)",
       description: "Visit us at",
       href: "#",
     },
