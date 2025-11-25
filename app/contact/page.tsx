@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { NavBar } from "@/components/nav-bar"
-import { Footer } from "@/components/footer"
+import { motion } from "framer-motion";
+import { NavBar } from "@/components/nav-bar";
+import { Footer } from "@/components/footer";
 
 export default function ContactPage() {
   const contactDetails = [
@@ -16,9 +16,9 @@ export default function ContactPage() {
     {
       icon: "/images/3D-Icons/Smartphone.png",
       title: "WhatsApp / Phone",
-      value: "+1 (555) 123-4567",
+      value: "+94 77 803 6074",
       description: "Chat with us on WhatsApp",
-      href: "https://wa.me/15551234567",
+      href: "https://wa.me/94778036074",
     },
     {
       icon: "/images/3D-Icons/linkedin.png",
@@ -32,16 +32,16 @@ export default function ContactPage() {
       title: "Facebook",
       value: "VertexCore AI",
       description: "Follow us on Facebook",
-      href: "https://facebook.com/vertexcoreai",
+      href: "https://www.facebook.com/share/1A5gtX6d9n/",
     },
     {
       icon: "/images/3D-Icons/map.png",
       title: "Address",
-      value: "San Francisco, CA",
-      description: "Visit our headquarters",
+      value: "No 108 Mullegama,Ambatenna",
+      description: "Visit us at",
       href: "#",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -62,7 +62,8 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-              We're here to help transform your ideas into reality. Reach out through any of the channels below.
+              We're here to help transform your ideas into reality. Reach out
+              through any of the channels below.
             </p>
           </motion.div>
         </div>
@@ -77,7 +78,11 @@ export default function ContactPage() {
                 key={index}
                 href={contact.href}
                 target={contact.href.startsWith("http") ? "_blank" : undefined}
-                rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                rel={
+                  contact.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -90,8 +95,12 @@ export default function ContactPage() {
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{contact.title}</h3>
-                <p className="text-emerald-400 font-medium mb-2">{contact.value}</p>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {contact.title}
+                </h3>
+                <p className="text-emerald-400 font-medium mb-2">
+                  {contact.value}
+                </p>
                 <p className="text-gray-400 text-sm">{contact.description}</p>
               </motion.a>
             ))}
@@ -101,5 +110,5 @@ export default function ContactPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
