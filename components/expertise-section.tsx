@@ -222,7 +222,7 @@ export function ExpertiseSection(): ReactElement {
                 playsInline
                 className="w-full h-auto object-contain"
               >
-                <source src="/videos/logo_vid.mp4" type="video/mp4" />
+                <source src="/Videos/logo_vid.mp4" type="video/mp4" />
               </video>
             </div>
 
@@ -277,7 +277,7 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source src="/videos/video-rec.mp4" type="video/mp4" />
+                    <source src="/Videos/video-rec.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
@@ -410,7 +410,7 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source src="/videos/oilspill.mp4" type="video/mp4" />
+                    <source src="/Videos/oilspill.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
