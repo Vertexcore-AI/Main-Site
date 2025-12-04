@@ -300,7 +300,7 @@ export default function ConsultationPage() {
   const handleSubmit = () => {
     localStorage.setItem("consultationCompleted", "true");
     localStorage.setItem("consultationData", JSON.stringify(consultationData));
-    window.location.href = "/dashboard";
+    window.location.href = "/contact";
   };
 
   const toggleProjectType = (typeId: string) => {
@@ -843,7 +843,7 @@ export default function ConsultationPage() {
           </div>
 
           {/* Navigation */}
-          {/* <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center">
             <Button
               onClick={prevStep}
               disabled={currentStep === 0}
@@ -871,7 +871,7 @@ export default function ConsultationPage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
 
