@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { NavBar } from "@/components/nav-bar"
-import { Footer } from "@/components/footer"
-import { BusinessProfileHeader } from "@/components/business-profile-header"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { NavBar } from "@/components/nav-bar";
+import { Footer } from "@/components/footer";
+import { BusinessProfileHeader } from "@/components/business-profile-header";
 import {
   ChevronRight,
   ChevronLeft,
@@ -27,26 +27,26 @@ import {
   Shield,
   Clock,
   Sparkles,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type ConsultationData = {
-  businessType: string
-  companySize: string
-  budget: string
-  projectType: string[]
-  timeline: string
-  goals: string[]
-  name: string
-  email: string
-  company: string
-  phone: string
-  isGuest: boolean
-}
+  businessType: string;
+  companySize: string;
+  budget: string;
+  projectType: string[];
+  timeline: string;
+  goals: string[];
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  isGuest: boolean;
+};
 
 export default function ConsultationPage() {
-  const [currentStep, setCurrentStep] = useState(0)
-  const [isGuest, setIsGuest] = useState(false)
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isGuest, setIsGuest] = useState(false);
   const [consultationData, setConsultationData] = useState<ConsultationData>({
     businessType: "",
     companySize: "",
@@ -59,7 +59,7 @@ export default function ConsultationPage() {
     company: "",
     phone: "",
     isGuest: false,
-  })
+  });
 
   // Update header dropdown when data changes
   useEffect(() => {
@@ -72,14 +72,18 @@ export default function ConsultationPage() {
       timeline: consultationData.timeline,
       contactName: consultationData.name,
       email: consultationData.email,
-    }
+    };
 
     // Show dropdown when user starts filling data
     if (Object.values(updateData).some((val) => val && val.trim() !== "")) {
-      window.dispatchEvent(new CustomEvent("showProfileDropdown", { detail: updateData }))
-      window.dispatchEvent(new CustomEvent("updateProfileDropdown", { detail: updateData }))
+      window.dispatchEvent(
+        new CustomEvent("showProfileDropdown", { detail: updateData })
+      );
+      window.dispatchEvent(
+        new CustomEvent("updateProfileDropdown", { detail: updateData })
+      );
     }
-  }, [consultationData])
+  }, [consultationData]);
 
   const steps = [
     { id: "business", title: "Business", icon: Building, color: "emerald" },
@@ -89,7 +93,7 @@ export default function ConsultationPage() {
     { id: "timeline", title: "Timeline", icon: Clock, color: "orange" },
     { id: "goals", title: "Goals", icon: Rocket, color: "cyan" },
     { id: "contact", title: "Contact", icon: Calendar, color: "pink" },
-  ]
+  ];
 
   const businessTypes = [
     {
@@ -124,14 +128,34 @@ export default function ConsultationPage() {
       gradient: "from-pink-500/20 to-rose-500/20",
       border: "border-pink-500/30",
     },
-  ]
+  ];
 
   const companySizes = [
-    { id: "1-10", label: "1-10 employees", description: "Small team", icon: "👥" },
-    { id: "11-50", label: "11-50 employees", description: "Growing company", icon: "🏢" },
-    { id: "51-200", label: "51-200 employees", description: "Mid-size", icon: "🏬" },
-    { id: "200+", label: "200+ employees", description: "Large corp", icon: "🏭" },
-  ]
+    {
+      id: "1-10",
+      label: "1-10 employees",
+      description: "Small team",
+      icon: "👥",
+    },
+    {
+      id: "11-50",
+      label: "11-50 employees",
+      description: "Growing company",
+      icon: "🏢",
+    },
+    {
+      id: "51-200",
+      label: "51-200 employees",
+      description: "Mid-size",
+      icon: "🏬",
+    },
+    {
+      id: "200+",
+      label: "200+ employees",
+      description: "Large corp",
+      icon: "🏭",
+    },
+  ];
 
   const projectTypes = [
     {
@@ -176,48 +200,108 @@ export default function ConsultationPage() {
       color: "indigo",
       description: "Structural design",
     },
-  ]
+  ];
 
   const budgetRanges = [
-    { id: "5k-25k", label: "$5K - $25K", description: "Small projects", icon: "💡" },
-    { id: "25k-100k", label: "$25K - $100K", description: "Medium solutions", icon: "🚀" },
-    { id: "100k-500k", label: "$100K - $500K", description: "Enterprise", icon: "🏢" },
+    {
+      id: "5k-25k",
+      label: "$5K - $25K",
+      description: "Small projects",
+      icon: "💡",
+    },
+    {
+      id: "25k-100k",
+      label: "$25K - $100K",
+      description: "Medium solutions",
+      icon: "🚀",
+    },
+    {
+      id: "100k-500k",
+      label: "$100K - $500K",
+      description: "Enterprise",
+      icon: "🏢",
+    },
     { id: "500k+", label: "$500K+", description: "Transformation", icon: "⭐" },
-  ]
+  ];
 
   const timelines = [
     { id: "asap", label: "ASAP", description: "Immediate start", icon: "⚡" },
-    { id: "1-3months", label: "1-3 months", description: "Planning phase", icon: "📅" },
-    { id: "3-6months", label: "3-6 months", description: "Flexible dev", icon: "🎯" },
-    { id: "6months+", label: "6+ months", description: "Long-term", icon: "🗺️" },
-  ]
+    {
+      id: "1-3months",
+      label: "1-3 months",
+      description: "Planning phase",
+      icon: "📅",
+    },
+    {
+      id: "3-6months",
+      label: "3-6 months",
+      description: "Flexible dev",
+      icon: "🎯",
+    },
+    {
+      id: "6months+",
+      label: "6+ months",
+      description: "Long-term",
+      icon: "🗺️",
+    },
+  ];
 
   const businessGoals = [
-    { id: "increase-sales", label: "Increase Sales", icon: <TrendingUp className="w-5 h-5" />, color: "emerald" },
-    { id: "improve-efficiency", label: "Improve Efficiency", icon: <Rocket className="w-5 h-5" />, color: "blue" },
-    { id: "expand-market", label: "Expand Market", icon: <Target className="w-5 h-5" />, color: "purple" },
-    { id: "reduce-costs", label: "Reduce Costs", icon: <BarChart className="w-5 h-5" />, color: "green" },
-    { id: "modernize", label: "Modernize Ops", icon: <Sparkles className="w-5 h-5" />, color: "orange" },
-    { id: "competitive-advantage", label: "Competitive Edge", icon: <Shield className="w-5 h-5" />, color: "cyan" },
-  ]
+    {
+      id: "increase-sales",
+      label: "Increase Sales",
+      icon: <TrendingUp className="w-5 h-5" />,
+      color: "emerald",
+    },
+    {
+      id: "improve-efficiency",
+      label: "Improve Efficiency",
+      icon: <Rocket className="w-5 h-5" />,
+      color: "blue",
+    },
+    {
+      id: "expand-market",
+      label: "Expand Market",
+      icon: <Target className="w-5 h-5" />,
+      color: "purple",
+    },
+    {
+      id: "reduce-costs",
+      label: "Reduce Costs",
+      icon: <BarChart className="w-5 h-5" />,
+      color: "green",
+    },
+    {
+      id: "modernize",
+      label: "Modernize Ops",
+      icon: <Sparkles className="w-5 h-5" />,
+      color: "orange",
+    },
+    {
+      id: "competitive-advantage",
+      label: "Competitive Edge",
+      icon: <Shield className="w-5 h-5" />,
+      color: "cyan",
+    },
+  ];
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     }
-  }
+  };
 
   const prevStep = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(currentStep - 1);
     }
-  }
+  };
 
   const handleSubmit = () => {
-    localStorage.setItem("consultationCompleted", "true")
-    localStorage.setItem("consultationData", JSON.stringify(consultationData))
-    window.location.href = "/dashboard"
-  }
+    localStorage.setItem("consultationCompleted", "true");
+    localStorage.setItem("consultationData", JSON.stringify(consultationData));
+    window.location.href = "/dashboard";
+  };
 
   const toggleProjectType = (typeId: string) => {
     setConsultationData((prev) => ({
@@ -225,15 +309,17 @@ export default function ConsultationPage() {
       projectType: prev.projectType.includes(typeId)
         ? prev.projectType.filter((id) => id !== typeId)
         : [...prev.projectType, typeId],
-    }))
-  }
+    }));
+  };
 
   const toggleGoal = (goalId: string) => {
     setConsultationData((prev) => ({
       ...prev,
-      goals: prev.goals.includes(goalId) ? prev.goals.filter((id) => id !== goalId) : [...prev.goals, goalId],
-    }))
-  }
+      goals: prev.goals.includes(goalId)
+        ? prev.goals.filter((id) => id !== goalId)
+        : [...prev.goals, goalId],
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
@@ -252,7 +338,11 @@ export default function ConsultationPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center py-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="space-y-3"
+            >
               <div className="inline-flex items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm font-medium">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Strategic Consultation
@@ -269,13 +359,24 @@ export default function ConsultationPage() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
               {steps.map((step, index) => (
-                <div key={step.id} className={`flex items-center ${index < steps.length - 1 ? "flex-1" : ""}`}>
+                <div
+                  key={step.id}
+                  className={`flex items-center ${
+                    index < steps.length - 1 ? "flex-1" : ""
+                  }`}
+                >
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                      index <= currentStep ? "bg-emerald-500 text-white" : "bg-gray-700 text-gray-400"
+                      index <= currentStep
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-700 text-gray-400"
                     }`}
                   >
-                    {index < currentStep ? <CheckCircle className="w-4 h-4" /> : <step.icon className="w-4 h-4" />}
+                    {index < currentStep ? (
+                      <CheckCircle className="w-4 h-4" />
+                    ) : (
+                      <step.icon className="w-4 h-4" />
+                    )}
                   </div>
                   {index < steps.length - 1 && (
                     <div className="flex-1 h-1 mx-2 bg-gray-700 rounded">
@@ -309,14 +410,21 @@ export default function ConsultationPage() {
                         <Building className="w-6 h-6 mr-3 text-emerald-400" />
                         What type of business are you?
                       </h2>
-                      <p className="text-gray-400">Help us understand your business context</p>
+                      <p className="text-gray-400">
+                        Help us understand your business context
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                       {businessTypes.map((type) => (
                         <motion.button
                           key={type.id}
-                          onClick={() => setConsultationData({ ...consultationData, businessType: type.id })}
+                          onClick={() =>
+                            setConsultationData({
+                              ...consultationData,
+                              businessType: type.id,
+                            })
+                          }
                           className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-center ${
                             consultationData.businessType === type.id
                               ? `${type.border} bg-gradient-to-br ${type.gradient} shadow-xl`
@@ -326,8 +434,12 @@ export default function ConsultationPage() {
                           whileTap={{ scale: 0.98 }}
                         >
                           <div className="text-2xl mb-2">{type.icon}</div>
-                          <h3 className="text-sm font-bold mb-1 text-white">{type.label}</h3>
-                          <p className="text-gray-400 text-xs">{type.description}</p>
+                          <h3 className="text-sm font-bold mb-1 text-white">
+                            {type.label}
+                          </h3>
+                          <p className="text-gray-400 text-xs">
+                            {type.description}
+                          </p>
                           {consultationData.businessType === type.id && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -350,14 +462,21 @@ export default function ConsultationPage() {
                         <Users className="w-6 h-6 mr-3 text-blue-400" />
                         Company size?
                       </h2>
-                      <p className="text-gray-400">This helps us scale our recommendations</p>
+                      <p className="text-gray-400">
+                        This helps us scale our recommendations
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                       {companySizes.map((size) => (
                         <motion.button
                           key={size.id}
-                          onClick={() => setConsultationData({ ...consultationData, companySize: size.id })}
+                          onClick={() =>
+                            setConsultationData({
+                              ...consultationData,
+                              companySize: size.id,
+                            })
+                          }
                           className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-center ${
                             consultationData.companySize === size.id
                               ? "border-blue-500 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 shadow-xl"
@@ -367,8 +486,12 @@ export default function ConsultationPage() {
                           whileTap={{ scale: 0.98 }}
                         >
                           <div className="text-2xl mb-2">{size.icon}</div>
-                          <h3 className="text-sm font-bold mb-1 text-white">{size.label}</h3>
-                          <p className="text-gray-400 text-xs">{size.description}</p>
+                          <h3 className="text-sm font-bold mb-1 text-white">
+                            {size.label}
+                          </h3>
+                          <p className="text-gray-400 text-xs">
+                            {size.description}
+                          </p>
                           {consultationData.companySize === size.id && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -407,9 +530,15 @@ export default function ConsultationPage() {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <div className={`text-${type.color}-400 mb-2`}>{type.icon}</div>
-                          <h3 className="text-sm font-bold mb-1 text-white">{type.label}</h3>
-                          <p className="text-gray-400 text-xs">{type.description}</p>
+                          <div className={`text-${type.color}-400 mb-2`}>
+                            {type.icon}
+                          </div>
+                          <h3 className="text-sm font-bold mb-1 text-white">
+                            {type.label}
+                          </h3>
+                          <p className="text-gray-400 text-xs">
+                            {type.description}
+                          </p>
                           {consultationData.projectType.includes(type.id) && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -432,14 +561,21 @@ export default function ConsultationPage() {
                         <DollarSign className="w-6 h-6 mr-3 text-green-400" />
                         What's your budget range?
                       </h2>
-                      <p className="text-gray-400">This helps us recommend the right solution</p>
+                      <p className="text-gray-400">
+                        This helps us recommend the right solution
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                       {budgetRanges.map((budget) => (
                         <motion.button
                           key={budget.id}
-                          onClick={() => setConsultationData({ ...consultationData, budget: budget.id })}
+                          onClick={() =>
+                            setConsultationData({
+                              ...consultationData,
+                              budget: budget.id,
+                            })
+                          }
                           className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-center ${
                             consultationData.budget === budget.id
                               ? "border-green-500 bg-gradient-to-br from-green-500/20 to-emerald-500/20 shadow-xl"
@@ -449,8 +585,12 @@ export default function ConsultationPage() {
                           whileTap={{ scale: 0.98 }}
                         >
                           <div className="text-2xl mb-2">{budget.icon}</div>
-                          <h3 className="text-sm font-bold mb-1 text-white">{budget.label}</h3>
-                          <p className="text-gray-400 text-xs">{budget.description}</p>
+                          <h3 className="text-sm font-bold mb-1 text-white">
+                            {budget.label}
+                          </h3>
+                          <p className="text-gray-400 text-xs">
+                            {budget.description}
+                          </p>
                           {consultationData.budget === budget.id && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -473,14 +613,21 @@ export default function ConsultationPage() {
                         <Clock className="w-6 h-6 mr-3 text-orange-400" />
                         When do you want to start?
                       </h2>
-                      <p className="text-gray-400">Timeline helps us plan your project</p>
+                      <p className="text-gray-400">
+                        Timeline helps us plan your project
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                       {timelines.map((timeline) => (
                         <motion.button
                           key={timeline.id}
-                          onClick={() => setConsultationData({ ...consultationData, timeline: timeline.id })}
+                          onClick={() =>
+                            setConsultationData({
+                              ...consultationData,
+                              timeline: timeline.id,
+                            })
+                          }
                           className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-center ${
                             consultationData.timeline === timeline.id
                               ? "border-orange-500 bg-gradient-to-br from-orange-500/20 to-red-500/20 shadow-xl"
@@ -490,8 +637,12 @@ export default function ConsultationPage() {
                           whileTap={{ scale: 0.98 }}
                         >
                           <div className="text-2xl mb-2">{timeline.icon}</div>
-                          <h3 className="text-sm font-bold mb-1 text-white">{timeline.label}</h3>
-                          <p className="text-gray-400 text-xs">{timeline.description}</p>
+                          <h3 className="text-sm font-bold mb-1 text-white">
+                            {timeline.label}
+                          </h3>
+                          <p className="text-gray-400 text-xs">
+                            {timeline.description}
+                          </p>
                           {consultationData.timeline === timeline.id && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -530,8 +681,12 @@ export default function ConsultationPage() {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <div className={`text-${goal.color}-400 mb-2`}>{goal.icon}</div>
-                          <h3 className="text-sm font-bold text-white">{goal.label}</h3>
+                          <div className={`text-${goal.color}-400 mb-2`}>
+                            {goal.icon}
+                          </div>
+                          <h3 className="text-sm font-bold text-white">
+                            {goal.label}
+                          </h3>
                           {consultationData.goals.includes(goal.id) && (
                             <motion.div
                               initial={{ scale: 0 }}
@@ -554,7 +709,9 @@ export default function ConsultationPage() {
                         <Calendar className="w-6 h-6 mr-3 text-emerald-400" />
                         Let's get your consultation scheduled
                       </h2>
-                      <p className="text-gray-400">Final step to unlock your strategy</p>
+                      <p className="text-gray-400">
+                        Final step to unlock your strategy
+                      </p>
                     </div>
 
                     {/* Guest Mode Toggle */}
@@ -562,8 +719,12 @@ export default function ConsultationPage() {
                       <div className="p-4 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-xl border border-emerald-500/20">
                         <div className="flex items-center justify-between">
                           <div>
-                            <h3 className="font-bold text-white">Try as Guest</h3>
-                            <p className="text-gray-400 text-sm">Preview dashboard without saving info</p>
+                            <h3 className="font-bold text-white">
+                              Try as Guest
+                            </h3>
+                            <p className="text-gray-400 text-sm">
+                              Preview dashboard without saving info
+                            </p>
                           </div>
                           <button
                             onClick={() => setIsGuest(!isGuest)}
@@ -585,44 +746,72 @@ export default function ConsultationPage() {
                       <div className="max-w-2xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-300">Full Name *</label>
+                            <label className="block text-sm font-medium text-gray-300">
+                              Full Name *
+                            </label>
                             <input
                               type="text"
                               value={consultationData.name}
-                              onChange={(e) => setConsultationData({ ...consultationData, name: e.target.value })}
+                              onChange={(e) =>
+                                setConsultationData({
+                                  ...consultationData,
+                                  name: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-all"
                               placeholder="Your full name"
                             />
                           </div>
 
                           <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-300">Email Address *</label>
+                            <label className="block text-sm font-medium text-gray-300">
+                              Email Address *
+                            </label>
                             <input
                               type="email"
                               value={consultationData.email}
-                              onChange={(e) => setConsultationData({ ...consultationData, email: e.target.value })}
+                              onChange={(e) =>
+                                setConsultationData({
+                                  ...consultationData,
+                                  email: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-all"
                               placeholder="your@email.com"
                             />
                           </div>
 
                           <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-300">Company Name</label>
+                            <label className="block text-sm font-medium text-gray-300">
+                              Company Name
+                            </label>
                             <input
                               type="text"
                               value={consultationData.company}
-                              onChange={(e) => setConsultationData({ ...consultationData, company: e.target.value })}
+                              onChange={(e) =>
+                                setConsultationData({
+                                  ...consultationData,
+                                  company: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-all"
                               placeholder="Your company"
                             />
                           </div>
 
                           <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-300">Phone Number</label>
+                            <label className="block text-sm font-medium text-gray-300">
+                              Phone Number
+                            </label>
                             <input
                               type="tel"
                               value={consultationData.phone}
-                              onChange={(e) => setConsultationData({ ...consultationData, phone: e.target.value })}
+                              onChange={(e) =>
+                                setConsultationData({
+                                  ...consultationData,
+                                  phone: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-all"
                               placeholder="+1 (555) 123-4567"
                             />
@@ -637,9 +826,12 @@ export default function ConsultationPage() {
                           <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                             <Sparkles className="w-6 h-6 text-emerald-400" />
                           </div>
-                          <h3 className="font-bold text-emerald-400 mb-2">Guest Mode Active</h3>
+                          <h3 className="font-bold text-emerald-400 mb-2">
+                            Guest Mode Active
+                          </h3>
                           <p className="text-gray-400">
-                            Explore our dashboard and see what we offer. Sign up at the end to save your consultation.
+                            Explore our dashboard and see what we offer. Sign up
+                            at the end to save your consultation.
                           </p>
                         </div>
                       </div>
@@ -651,7 +843,7 @@ export default function ConsultationPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center">
+          {/* <div className="flex justify-between items-center">
             <Button
               onClick={prevStep}
               disabled={currentStep === 0}
@@ -679,11 +871,11 @@ export default function ConsultationPage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
 
       <Footer />
     </div>
-  )
+  );
 }
