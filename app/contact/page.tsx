@@ -9,7 +9,7 @@ export default function ContactPage() {
     {
       icon: "/images/3D-Icons/e-mails_3d.png",
       title: "Email",
-      value: "vertexcoreai@gmail.com",
+      value: "support@vertexcoreai.com",
       description: "Send us an email anytime",
       href: "mailto:support@vertexcore.ai",
     },

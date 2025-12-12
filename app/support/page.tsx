@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { NavBar } from "@/components/nav-bar"
-import { Footer } from "@/components/footer"
-import { CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { NavBar } from "@/components/nav-bar";
+import { Footer } from "@/components/footer";
+import { CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function SupportPage() {
   return (
@@ -14,7 +14,11 @@ export default function SupportPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-12 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
               <span className="text-white">World-Class </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-400">
@@ -23,8 +27,9 @@ export default function SupportPage() {
             </h1>
 
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-              Choose the support model that fits your needs. From standard maintenance to enterprise SLAs, we ensure your
-              applications run flawlessly.
+              Choose the support model that fits your needs. From standard
+              maintenance to enterprise SLAs, we ensure your applications run
+              flawlessly.
             </p>
           </motion.div>
         </div>
@@ -56,38 +61,48 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mb-6 mx-auto">
-                <img src="/images/3D-Icons/shield.png" alt="Shield" className="w-full h-full object-contain" />
+                <img
+                  src="/images/3D-Icons/shield.png"
+                  alt="Shield"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 text-center">Standard Maintenance</h3>
-              <p className="text-gray-400 mb-6">We keep your application secure and running smoothly.</p>
+              <h3 className="text-2xl font-bold text-white mb-3 text-center">
+                Standard Maintenance
+              </h3>
+              <p className="text-gray-400 mb-6">
+                We keep your application secure and running smoothly.
+              </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Security patches & updates</span>
+                  <span className="text-gray-300">
+                    Security patches & updates
+                  </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">Uptime monitoring</span>
                 </div>
-              <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">Priority bug fixes</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Email support (48hr response)</span>
+                  <span className="text-gray-300">
+                    Email support (48hr response)
+                  </span>
                 </div>
-                   <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">99.99% uptime guarantee</span>
                 </div>
               </div>
-             
+
               <div className="pt-4 border-t border-gray-700">
                 <p className="text-sm text-gray-500">Free</p>
-             
               </div>
-              
             </motion.div>
 
             {/* Dedicated Team */}
@@ -192,7 +207,8 @@ export default function SupportPage() {
               Get in <span className="text-emerald-400">Touch</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Need help choosing the right plan or have questions? Our team is here to assist you.
+              Need help choosing the right plan or have questions? Our team is
+              here to assist you.
             </p>
           </motion.div>
 
@@ -206,12 +222,21 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img src="/images/3D-Icons/e-mails.png" alt="Email" className="w-full h-full object-contain" />
+                <img
+                  src="/images/3D-Icons/e-mails.png"
+                  alt="Email"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Email Support</h3>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Email Support
+              </h3>
               <p className="text-gray-400 mb-4">Get detailed help via email</p>
-              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
-                support@vertexcore.ai
+              <Button
+                variant="outline"
+                className="border-gray-600 text-white hover:bg-gray-800"
+              >
+                support@vertexcoreai.com
               </Button>
             </motion.div>
 
@@ -224,11 +249,18 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img src="/images/3D-Icons/chat.png" alt="Chat" className="w-full h-full object-contain" />
+                <img
+                  src="/images/3D-Icons/chat.png"
+                  alt="Chat"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Live Chat</h3>
               <p className="text-gray-400 mb-4">Chat with our team instantly</p>
-              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
+              <Button
+                variant="outline"
+                className="border-gray-600 text-white hover:bg-gray-800"
+              >
                 Start Chat
               </Button>
             </motion.div>
@@ -242,11 +274,20 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img src="/images/3D-Icons/phone.png" alt="Phone" className="w-full h-full object-contain" />
+                <img
+                  src="/images/3D-Icons/phone.png"
+                  alt="Phone"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Phone Support</h3>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Phone Support
+              </h3>
               <p className="text-gray-400 mb-4">Speak directly with experts</p>
-              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
+              <Button
+                variant="outline"
+                className="border-gray-600 text-white hover:bg-gray-800"
+              >
                 Schedule Call
               </Button>
             </motion.div>
@@ -256,5 +297,5 @@ export default function SupportPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
