@@ -42,8 +42,8 @@ export default function ProjectsPage() {
   const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0)
 
   const filters = [
-    { id: "all", label: "All Projects", count: 1 },
-    { id: "web", label: "Web Development", count: 1 },
+    { id: "all", label: "All Projects", count: 3 },
+    { id: "web", label: "Web Development", count: 3 },
   ]
 
   const projects = [
@@ -134,6 +134,50 @@ export default function ProjectsPage() {
           "Real-time Analytics Dashboard & Financial Reporting",
         ],
         technologies: ["Laravel", "MySQL", "Python", "OpenCv", "Gemini 3.0"],
+      },
+    },
+    {
+      id: "agrisense",
+      name: "AgriSense",
+      client: "Smart Agri Solutions",
+      category: "web",
+      status: "in-progress",
+      budget: "$95K",
+      timeline: "Ongoing",
+      completion: 65,
+      rating: 5,
+      description: "IoT-based agriculture management system featuring real-time sensor monitoring, automated actuator control, and advanced climate management.",
+      image: "/images/IOT-images/iot_home.png",
+      logo: "/images/IOT-images/iot_logo.png",
+      tags: ["IoT", "Agriculture", "MQTT", "Laravel", "Automation"],
+      metrics: {
+        timeSaved: "3-4 hrs/day",
+        errorReduction: "92%",
+      },
+      featured: true,
+      previewUrl: "",
+      hasLivePreview: true,
+      isImage: true,
+      screenshots: [
+        "/images/IOT-images/iot_home.png",
+        "/images/IOT-images/iot_dashboard.png",
+        "/images/IOT-images/iot_sensors.png",
+        "/images/IOT-images/iot_actuators.png",
+        "/images/IOT-images/iot_actuators.png",
+      ],
+      details: {
+        overview:
+          "AgriSense is a cutting-edge IoT-based agriculture management system designed to optimize farming operations. It provides real-time monitoring of environmental conditions and automated control over agricultural equipment to ensure optimal crop growth and resource efficiency through the MQTT protocol.",
+        features: [
+          "Real-time Sensor Monitoring (Temperature, Humidity, Soil Moisture)",
+          "Automated Actuator Control for Irrigation and Ventilation",
+          "Intelligent Temperature & Climate Control Systems",
+          "Advanced MQTT Protocol for Low-Latency Communication",
+          "Analytics Dashboard for Sensor History and Trends",
+          "Remote Access and Manual Override Controls",
+          "Configurable Alerts and Automated Schedules",
+        ],
+        technologies: ["Laravel", "MySQL", "MQTT Protocol"],
       },
     },
   ]
