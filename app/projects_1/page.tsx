@@ -139,7 +139,7 @@ export default function ProjectsPage() {
     {
       id: "agrisense",
       name: "AgriSense",
-      client: "Smart Agri Solutions",
+      client: "Ceylon Breeze International",
       category: "web",
       status: "in-progress",
       budget: "$95K",
