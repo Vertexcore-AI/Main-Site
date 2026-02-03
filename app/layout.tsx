@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description:
     "Revolutionary technology solutions that drive growth and innovation",
   generator: "v0.app",
+  icons: {
+    icon: "/images/newlogo.png",
+  },
 };
 
 export default function RootLayout({
