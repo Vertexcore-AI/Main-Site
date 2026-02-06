@@ -7,7 +7,7 @@
                 "npx",
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "C:\\Users\\User\\Desktop\\cst-profile"
+                "C:\\Users\\User\\Desktop\\vertexcoreai-main\\cst-profile"
             ]
         },
         "browsermcp": {
