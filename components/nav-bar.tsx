@@ -1,33 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
-import { Menu, X, Monitor, Zap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { LanguageSelector } from "@/components/language-selector"
-import { useLanguage } from "@/contexts/language-context"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
 
 export function NavBar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const pathname = usePathname()
-  const { t } = useLanguage()
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   interface NavItem {
-    name: string
-    href: string
-    icon?: React.ReactNode
+    name: string;
+    href: string;
+    icon?: React.ReactNode;
   }
 
   const navItems: NavItem[] = [
@@ -37,18 +36,21 @@ export function NavBar() {
     { name: t("nav.support"), href: "/support" },
     // { name: "Case Studies More", href: "/case-studies" },
     // { name: "Portfolio", href: "/portfolio" },
-    { name: ("Projects"), href: "/projects_1" },
-    { name: ("Contanct Us"), href: "/contact" },
-  ]
+    { name: "Projects", href: "/projects_1" },
+    { name: "Contanct Us", href: "/contact" },
+  ];
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <motion.nav
-      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/40 backdrop-blur-md border-b border-gray-800/30" : "bg-black/15 backdrop-blur-sm"
-        }`}
+      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-black/40 backdrop-blur-md border-b border-gray-800/30"
+          : "bg-black/15 backdrop-blur-sm"
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -56,7 +58,11 @@ export function NavBar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2" onClick={scrollToTop}>
+          <Link
+            href="/"
+            className="flex items-center space-x-2"
+            onClick={scrollToTop}
+          >
             <div>
               <Image
                 src="/images/newlogo.png"
@@ -65,7 +71,10 @@ export function NavBar() {
                 height={100}
                 priority
                 className="h-20 w-auto object-contain"
-                style={{ filter: "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))" }}
+                style={{
+                  filter:
+                    "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
+                }}
               />
             </div>
           </Link>
@@ -77,8 +86,11 @@ export function NavBar() {
                 key={item.name}
                 href={item.href}
                 onClick={scrollToTop}
-                className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
-                  }`}
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${
+                  pathname === item.href
+                    ? "text-emerald-400"
+                    : "text-gray-300 hover:text-white"
+                }`}
               >
                 {item.icon && <span className="mr-1">{item.icon}</span>}
                 <span>{item.name}</span>
@@ -86,22 +98,8 @@ export function NavBar() {
             ))}
           </div>
 
-          {/* Right side items - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
-            <LanguageSelector />
-            <Link
-              href="/corporate-login"
-              onClick={scrollToTop}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              <Monitor className="w-5 h-5" />
-            </Link>
-            {/* <Link href="/consultation" onClick={scrollToTop}>
-              <Button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium">
-                <Zap className="w-4 h-4 mr-2" />
-                Free Consultation
-              </Button>
-            </Link> */}
+            {/* Right side items - Desktop (LanguageSelector and Corporate Login removed) */}
           </div>
 
           {/* Mobile menu button and Free Consultation */}
@@ -115,8 +113,15 @@ export function NavBar() {
                 Free
               </Button>
             </Link>
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 hover:text-white">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -125,8 +130,9 @@ export function NavBar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className={`lg:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-gray-800 ${scrolled ? "bg-black/70" : "bg-black/30"
-                }`}
+              className={`lg:hidden absolute top-full left-0 right-0 backdrop-blur-md border-b border-gray-800 ${
+                scrolled ? "bg-black/70" : "bg-black/30"
+              }`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -138,11 +144,14 @@ export function NavBar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => {
-                      setIsOpen(false)
-                      scrollToTop()
+                      setIsOpen(false);
+                      scrollToTop();
                     }}
-                    className={`flex items-center space-x-2 text-base font-medium transition-colors duration-200 ${pathname === item.href ? "text-emerald-400" : "text-gray-300 hover:text-white"
-                      }`}
+                    className={`flex items-center space-x-2 text-base font-medium transition-colors duration-200 ${
+                      pathname === item.href
+                        ? "text-emerald-400"
+                        : "text-gray-300 hover:text-white"
+                    }`}
                   >
                     {item.icon && <span className="mr-1">{item.icon}</span>}
                     <span>{item.name}</span>
@@ -152,8 +161,8 @@ export function NavBar() {
                   <Link
                     href="/consultation"
                     onClick={() => {
-                      setIsOpen(false)
-                      scrollToTop()
+                      setIsOpen(false);
+                      scrollToTop();
                     }}
                   >
                     <Button className="w-full bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium">
@@ -168,5 +177,5 @@ export function NavBar() {
         </AnimatePresence>
       </div>
     </motion.nav>
-  )
+  );
 }
