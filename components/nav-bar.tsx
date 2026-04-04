@@ -31,18 +31,14 @@ export function NavBar() {
 
   const navItems: NavItem[] = [
     { name: "Services", href: "/services" },
-    { name: t("Case Studies"), href: "/projects" },
+    { name: t("Case Studies"), href: "/case-studies" },
     { name: t("nav.process"), href: "/process" },
     { name: t("nav.support"), href: "/support" },
-    // { name: "Case Studies More", href: "/case-studies" },
-    // { name: "Portfolio", href: "/portfolio" },
-    { name: "Projects", href: "/projects_1" },
-    { name: "Contanct Us", href: "/contact" },
+    { name: "Projects", href: "/projects" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+
 
   return (
     <motion.nav
@@ -61,7 +57,6 @@ export function NavBar() {
           <Link
             href="/"
             className="flex items-center space-x-2"
-            onClick={scrollToTop}
           >
             <div>
               <Image
@@ -85,7 +80,6 @@ export function NavBar() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={scrollToTop}
                 className={`flex items-center space-x-1 text-sm font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? "text-emerald-400"
@@ -104,7 +98,7 @@ export function NavBar() {
 
           {/* Mobile menu button and Free Consultation */}
           <div className="lg:hidden flex items-center space-x-3">
-            <Link href="/consultation" onClick={scrollToTop}>
+            <Link href="/consultation">
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium text-xs px-3 py-2"
@@ -145,7 +139,6 @@ export function NavBar() {
                     href={item.href}
                     onClick={() => {
                       setIsOpen(false);
-                      scrollToTop();
                     }}
                     className={`flex items-center space-x-2 text-base font-medium transition-colors duration-200 ${
                       pathname === item.href
@@ -162,7 +155,6 @@ export function NavBar() {
                     href="/consultation"
                     onClick={() => {
                       setIsOpen(false);
-                      scrollToTop();
                     }}
                   >
                     <Button className="w-full bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium">
