@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
@@ -149,7 +150,7 @@ export default function CaseStudiesPage() {
               {caseStudies.map((study, index) => (
                 <motion.div
                   key={study.id}
-                  ref={(el) => (caseStudyRefs.current[index] = el)}
+                  ref={(el) => { caseStudyRefs.current[index] = el }}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -205,7 +206,16 @@ export default function CaseStudiesPage() {
 
                         {/* Image Container */}
                         <div className="relative backdrop-blur-xl border border-gray-700 rounded-3xl p-6 overflow-hidden shadow-2xl bg-gray-900/50">
-                          <img src={image} alt={`${study.title} screenshot ${imgIndex + 1}`} className="w-full h-auto rounded-xl object-cover" />
+                          <Image
+                            src={image}
+                            alt={`${study.title} screenshot ${imgIndex + 1}`}
+                            width={800}
+                            height={500}
+                            className="w-full h-auto rounded-xl object-cover"
+                            loading="lazy"
+                            quality={85}
+                            style={{ width: '100%', height: 'auto' }}
+                          />
                         </div>
                       </motion.div>
                     ))}
