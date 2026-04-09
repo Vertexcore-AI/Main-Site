@@ -44,8 +44,6 @@ export default function HomeClient() {
           <div className="relative z-1 text-center space-y-6">
             {/* Enhanced hero with better contrast */}
             <div className="relative mt-16">
-              {/* Background for better contrast in light mode */}
-              <div className="absolute inset-0 bg-background/80 dark:bg-transparent rounded-2xl blur-3xl"></div>
               <div className="relative z-10">
                 <TypingHero />
               </div>
@@ -60,7 +58,6 @@ export default function HomeClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="absolute inset-0 bg-background/60 dark:bg-transparent rounded-xl blur-2xl"></div>
 
               {/* Accent tagline */}
               <div className="relative z-10 inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
