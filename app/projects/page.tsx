@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
 import {
@@ -512,11 +513,14 @@ export default function ProjectsPage() {
                   {/* Project Header */}
                   <div className="p-4">
                     <div className="flex items-center space-x-4 mb-4">
-                      <img
-                        src={project.logo || "/placeholder.svg"}
-                        alt={project.name}
-                        className="w-16 h-16 object-contain bg-gray-800/50 rounded-lg p-2"
-                      />
+                      <div className="w-16 h-16 relative bg-gray-800/50 rounded-lg p-2">
+                        <Image
+                          src={project.logo || "/placeholder.svg"}
+                          alt={project.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                       <div className="flex-1">
                         <h2 className="text-xl font-bold text-white">
                           {project.name}
@@ -548,10 +552,13 @@ export default function ProjectsPage() {
                     {project.hasLivePreview ? (
                       project.isImage && project.screenshots ? (
                         <div className="w-full h-80 flex items-center justify-center bg-gray-900 relative overflow-hidden">
-                          <img
+                          <Image
                             src={project.screenshots[currentScreenshotIndex]}
                             alt={`${project.name} Screenshot ${currentScreenshotIndex + 1}`}
-                            className="w-full h-full object-contain"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw"
+                            priority={index === 0}
                           />
 
                           {/* Navigation Buttons */}
@@ -781,19 +788,25 @@ export default function ProjectsPage() {
                     <div className={sidebarCollapsed ? "p-2" : "p-3"}>
                       {sidebarCollapsed ? (
                         /* Collapsed view - only show logo */
-                        <img
-                          src={project.logo || "/placeholder.svg"}
-                          alt={project.name}
-                          className="max-w-10 max-h-10 w-auto h-auto object-contain bg-gray-800 rounded p-1 mx-auto"
-                        />
+                        <div className="w-10 h-10 relative bg-gray-800 rounded p-1 mx-auto">
+                          <Image
+                            src={project.logo || "/placeholder.svg"}
+                            alt={project.name}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
                       ) : (
                         /* Expanded view - full content */
                         <div className="flex items-start space-x-2">
-                          <img
-                            src={project.logo || "/placeholder.svg"}
-                            alt={project.name}
-                            className="max-w-12 max-h-10 w-auto h-auto object-contain bg-gray-800 rounded p-1 flex-shrink-0"
-                          />
+                          <div className="w-12 h-10 relative bg-gray-800 rounded p-1 flex-shrink-0">
+                            <Image
+                              src={project.logo || "/placeholder.svg"}
+                              alt={project.name}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between mb-1">
                               <h3 className="font-semibold text-white truncate text-sm">
@@ -846,11 +859,15 @@ export default function ProjectsPage() {
                 <div className="border-b border-gray-800 p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
-                      <img
-                        src={selectedProject.logo || "/placeholder.svg"}
-                        alt={selectedProject.name}
-                        className="max-w-32 max-h-20 w-auto h-auto object-contain bg-gray-800/50 rounded-xl p-2 border border-gray-700"
-                      />
+                      <div className="w-32 h-20 relative bg-gray-800/50 rounded-xl p-2 border border-gray-700">
+                        <Image
+                          src={selectedProject.logo || "/placeholder.svg"}
+                          alt={selectedProject.name}
+                          fill
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
                       <div>
                         <h2 className="text-3xl font-bold text-white mb-2">
                           {selectedProject.name}
@@ -915,14 +932,17 @@ export default function ProjectsPage() {
                     {selectedProject.hasLivePreview ? (
                       selectedProject.isImage && selectedProject.screenshots ? (
                         <div className="w-full h-full flex items-center justify-center bg-white relative overflow-hidden">
-                          <img
+                          <Image
                             src={
                               selectedProject.screenshots[
                                 currentScreenshotIndex
                               ]
                             }
                             alt={`${selectedProject.name} Screenshot ${currentScreenshotIndex + 1}`}
-                            className="w-full h-full object-contain"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 1200px) 100vw, 75vw"
+                            priority
                           />
 
                           {/* Navigation Buttons */}

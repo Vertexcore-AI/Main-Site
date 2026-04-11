@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 
 interface Carousel3DProps {
   images: string[]
@@ -144,12 +145,16 @@ export default function Carousel3D({
                 height: imageHeight,
                 transform,
                 borderRadius,
+                position: "relative",
               }}
             >
-              <img
+              <Image
                 src={src}
                 alt={`carousel-${index}`}
+                fill
+                className="object-contain"
                 style={{ borderRadius }}
+                sizes={`${imageWidth}px`}
               />
             </figure>
           )

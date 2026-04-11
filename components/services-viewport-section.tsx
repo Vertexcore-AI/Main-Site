@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { gsap } from "gsap"
@@ -699,16 +700,22 @@ function MobileUIGraphic({ service }: { service: any }) {
 
             {/* App Content - Template Images */}
             <div className="relative h-[calc(100%-48px)] bg-white overflow-hidden">
-              <motion.img
+              <motion.div
                 key={activeImageIndex}
-                src={templateImages[activeImageIndex].img}
-                alt={templateImages[activeImageIndex].title}
-                className="w-full h-full object-cover"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-              />
+                className="w-full h-full relative"
+              >
+                <Image
+                  src={templateImages[activeImageIndex].img}
+                  alt={templateImages[activeImageIndex].title}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </motion.div>
 
               {/* Navigation Buttons */}
               <button
@@ -775,16 +782,22 @@ function DigitalSystemsUIGraphic({ service }: { service: any }) {
       {/* Enhanced System Architecture with Image Carousel */}
       <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 shadow-lg">
         <div className="relative min-h-[240px] flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-gray-100 to-gray-200">
-          <motion.img
+          <motion.div
             key={activeImageIndex}
-            src={systemImages[activeImageIndex].img}
-            alt={systemImages[activeImageIndex].title}
-            className="w-full h-full object-contain"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-          />
+            className="w-full h-[240px] relative"
+          >
+            <Image
+              src={systemImages[activeImageIndex].img}
+              alt={systemImages[activeImageIndex].title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </motion.div>
 
           {/* Navigation Buttons */}
           <button
