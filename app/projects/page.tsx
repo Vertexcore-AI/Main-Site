@@ -45,8 +45,8 @@ export default function ProjectsPage() {
   const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
 
   const filters = [
-    { id: "all", label: "All Projects", count: 4 },
-    { id: "web", label: "Web Development", count: 4 },
+    { id: "all", label: "All Projects", count: 5 },
+    { id: "web", label: "Web Development", count: 5 },
   ];
 
   const projects = [
@@ -103,13 +103,13 @@ export default function ProjectsPage() {
     },
     {
       id: "pos-supermarket",
-      name: "POS Supermarket",
-      client: "H-Mart Supermarkets",
+      name: "POS System",
+      client: "H-Mart Supermarket",
       category: "web",
-      status: "in-progress",
+      status: "completed",
       budget: "$120K",
-      timeline: "Ongoing",
-      completion: 85,
+      timeline: "4 months",
+      completion: 100,
       rating: 5,
       description:
         "Enterprise-grade POS & Management System featuring advanced AI-powered OCR for automated invoice processing and full double-entry accounting.",
@@ -197,6 +197,55 @@ export default function ProjectsPage() {
           "Scalable Architecture for future expansion",
         ],
         technologies: ["Laravel", "Next.js", "MySQL"],
+      },
+    },
+    {
+      id: "govi-potha",
+      name: "Govi-Potha ERP System",
+      client: "VertexCore AI",
+      category: "web",
+      status: "in-progress",
+      budget: "$110K",
+      timeline: "Ongoing",
+      completion: 75,
+      rating: 5,
+      description:
+        "Comprehensive agriculture-focused ERP system designed for greenhouse owners and agri-businesses to manage operations, finance, and analytics.",
+      image: "/images/Govi-Potha-images/image1.png",
+      logo: "/images/Govi-Potha-images/govipotha.png",
+      tags: ["ERP", "Agriculture", "Laravel", "Next.js", "Business Mgmt"],
+      metrics: {
+        timeSaved: "4-6 hrs/day",
+        errorReduction: "95%",
+      },
+      metricLabels: {
+        timeSaved: "Manual Work Reduction",
+        errorReduction: "Data Accuracy",
+      },
+      featured: true,
+      previewUrl: "",
+      hasLivePreview: true,
+      isImage: true,
+      screenshots: [
+        "/images/Govi-Potha-images/image1.png",
+        "/images/Govi-Potha-images/image2.png",
+        "/images/Govi-Potha-images/image3.png",
+      ],
+      details: {
+        overview:
+          "Govi Potha ERP is a comprehensive agriculture-focused enterprise resource planning system developed by VertexCore AI. It is designed specifically for greenhouse owners and agri-businesses to efficiently manage operations, including labor, finance, inventory, and analytics—all within a unified platform. The system streamlines daily workflows, improves financial tracking, and enhances decision-making through real-time data insights and automation.",
+        features: [
+          "Labour Management System: Track worker profiles, attendance, salaries, and OT",
+          "Payroll & Financial Management: Automated salary calculations and expense tracking",
+          "Inventory & Resource Management: Manage fertilizers, tools, and materials",
+          "GRN & Purchase Management: Handle goods received nodes and supplier records",
+          "Analytics & Reporting Dashboard: Visual insights with PDF/Print support",
+          "Role-Based Access Control: Secure system for admins, managers, and workers",
+          "Real-Time Data & Centralized System: Synchronized operations on one platform",
+          "Custom Alerts & Notifications: Low inventory and pending payment alerts",
+          "Scalable Architecture: Supports small farms to large-scale operations",
+        ],
+        technologies: ["Laravel", "Next.js", "MySQL", "REST APIs"],
       },
     },
     {
