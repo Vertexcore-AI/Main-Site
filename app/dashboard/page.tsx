@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils"
 import { GraduationCap, HeartHandshake, User2, Users2, Zap } from "lucide-react"
 import Link from "next/link"
 import { Icons } from "@/components/icons"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 const features = [
   {
@@ -54,6 +56,7 @@ const testimonials = [
 ]
 
 export default function DashboardPage() {
+  const router = useRouter()
   return (
     <div className="container relative">
       <header className="flex items-center justify-between py-10">
@@ -85,7 +88,7 @@ export default function DashboardPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => (window.location.href = "/services")}
+                onClick={() => router.push("/services")}
                 variant="outline"
                 size="lg"
                 className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3"
@@ -93,7 +96,7 @@ export default function DashboardPage() {
                 Services
               </Button>
               <Button
-                onClick={() => (window.location.href = "/consultation")}
+                onClick={() => router.push("/consultation")}
                 size="lg"
                 className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-medium px-8 py-3"
               >
@@ -102,9 +105,11 @@ export default function DashboardPage() {
               </Button>
             </div>
           </div>
-          <img
+          <Image
             src="/hero-image.png"
             alt="Hero Image"
+            width={1200}
+            height={675}
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
           />
         </div>
@@ -182,7 +187,7 @@ export default function DashboardPage() {
                 </p>
               </div>
               <Button
-                onClick={() => (window.location.href = "/sign-up")}
+                onClick={() => router.push("/sign-up")}
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium"
               >

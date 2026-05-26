@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronDown, ChevronUp, Sparkles, TrendingUp, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 type ProfileData = {
   service?: string
@@ -17,6 +18,7 @@ type ProfileData = {
 }
 
 export function BusinessProfileHeader() {
+  const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [profileData, setProfileData] = useState<ProfileData>({})
@@ -244,7 +246,7 @@ export function BusinessProfileHeader() {
                       size="sm"
                       variant="outline"
                       className="border-gray-600/30 bg-gray-800/20 text-gray-300 hover:bg-gray-700/30 text-xs backdrop-blur-sm h-7 px-3 flex items-center space-x-1"
-                      onClick={() => (window.location.href = "/consultation")}
+                      onClick={() => router.push("/consultation")}
                     >
                       <span>Schedule</span>
                       <ArrowRight className="w-3 h-3" />

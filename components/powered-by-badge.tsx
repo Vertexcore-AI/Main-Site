@@ -5,8 +5,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Star, Clock, DollarSign, Users, Award, X, CheckCircle, Zap, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export function PoweredByBadge() {
+  const router = useRouter()
   const [showSidebar, setShowSidebar] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -47,7 +50,7 @@ export function PoweredByBadge() {
           onClick={handleClick}
         >
           <span className="text-xs ml-1 mr-1">powered by</span>
-          <img src="/images/newlogo.png" alt="VertexCore AI" className="w-28 h-7 object-contain scale-125" />
+          <Image src="/images/newlogo.png" alt="VertexCore AI" width={112} height={28} className="w-28 h-7 object-contain scale-125" />
         </motion.div>
       </div>
 
@@ -87,7 +90,7 @@ export function PoweredByBadge() {
                 {/* Header with large logo */}
                 <div className="text-center space-y-4 pt-8">
                   <div className="flex justify-center">
-                    <img src="/images/newlogo.png" alt="VertexCore AI" className="w-32 h-20 object-contain" />
+                    <Image src="/images/newlogo.png" alt="VertexCore AI" width={128} height={80} className="w-32 h-20 object-contain" />
                   </div>
                   <h2 className="text-2xl font-bold text-white">Partnership Program</h2>
                   <p className="text-gray-400">Exclusive benefits for our valued partners</p>
@@ -99,9 +102,11 @@ export function PoweredByBadge() {
                   <div className="flex justify-center">
                     <div className="inline-flex items-center px-3 py-2 bg-black/80 backdrop-blur-sm border border-gray-700 rounded-full text-xs text-gray-300">
                       <span className="ml-1 mr-1">powered by</span>
-                      <img
+                      <Image
                         src="/images/newlogo.png"
                         alt="VertexCore AI"
+                        width={112}
+                        height={28}
                         className="w-28 h-7 object-contain scale-125"
                       />
                     </div>
@@ -245,7 +250,7 @@ export function PoweredByBadge() {
                 <div className="space-y-4">
                   <Button
                     className="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-black font-bold py-3"
-                    onClick={() => (window.location.href = "/partnership")}
+                    onClick={() => router.push("/partnership")}
                   >
                     Apply for Partnership
                   </Button>

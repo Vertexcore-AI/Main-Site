@@ -5,11 +5,26 @@ import { useTheme } from "next-themes"
 
 export function CodeRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const { theme, resolvedTheme } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          canvas.dataset.visible = "true"
+        } else {
+          canvas.dataset.visible = "false"
+        }
+      },
+      { threshold: 0 }
+    )
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
@@ -140,14 +155,19 @@ export function CodeRain() {
     }
 
     // Animation loop
-    const interval = setInterval(draw, 50)
+    const interval = setInterval(() => {
+      if (canvas.dataset.visible !== "false") {
+        draw()
+      }
+    }, 50)
 
     // Cleanup
     return () => {
       clearInterval(interval)
       window.removeEventListener("resize", resizeCanvas)
+      observer.disconnect()
     }
   }, [theme, resolvedTheme])
 
-  return <canvas ref={canvasRef} className="w-full h-full" />
+  return <div ref={containerRef} className="w-full h-full"><canvas ref={canvasRef} className="w-full h-full" /></div>
 }

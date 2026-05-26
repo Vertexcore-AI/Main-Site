@@ -145,7 +145,6 @@ export default function Carousel3D({
                 height: imageHeight,
                 transform,
                 borderRadius,
-                position: "relative",
               }}
             >
               <Image

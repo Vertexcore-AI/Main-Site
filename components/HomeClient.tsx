@@ -5,14 +5,13 @@ import { CodeRain } from "@/components/code-rain";
 import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
 import { ExpertiseSection } from "@/components/expertise-section";
-import { SpinningEarth } from "@/components/spinning-earth";
 import { TypingHero } from "@/components/typing-hero";
-import { PixelTrail } from "@/components/pixel-trail";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import { ProfileDropdown } from "@/components/profile-dropdown";
 import { ServicesViewportSection } from "@/components/services-viewport-section";
-import Particles from "@/components/particles";
+import dynamic from "next/dynamic"
+const Particles = dynamic(() => import("@/components/particles"), { ssr: false })
 import { Highlight } from "@/components/ui/hero-highlight";
 
 export default function HomeClient() {

@@ -31,6 +31,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { sendConsultationEmail } from "@/app/actions/send-consultation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type ConsultationData = {
   businessType: string;
@@ -47,6 +48,7 @@ type ConsultationData = {
 };
 
 export default function ConsultationClient() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [consultationData, setConsultationData] = useState<ConsultationData>({
     businessType: "",
@@ -285,7 +287,7 @@ export default function ConsultationClient() {
           "consultationData",
           JSON.stringify(consultationData),
         );
-        window.location.href = "/contact";
+        router.push("/contact");
       } else {
         toast.error("Failed to send request. Please try again.");
       }

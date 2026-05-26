@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import { CodeRain } from "@/components/code-rain"
+import Image from "next/image"
 import {
   MessageCircle,
   Search,
@@ -34,7 +35,7 @@ export default function ProcessPage() {
       id: "discovery",
       title: "Discovery & Planning",
       duration: "1-2 weeks",
-      icon: <img src="/images/3D-Icons/chat.png" alt="Discovery" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/chat.png" alt="Discovery" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
@@ -58,7 +59,7 @@ export default function ProcessPage() {
       id: "design",
       title: "Design & Prototyping",
       duration: "2-3 weeks",
-      icon: <img src="/images/3D-Icons/Globe.png" alt="Design" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/Globe.png" alt="Design" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-purple-500",
       bgColor: "bg-purple-500/10",
       borderColor: "border-purple-500/20",
@@ -82,7 +83,7 @@ export default function ProcessPage() {
       id: "development",
       title: "Development & Integration",
       duration: "4-12 weeks",
-      icon: <img src="/images/3D-Icons/laptop.png" alt="Development" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/laptop.png" alt="Development" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-green-500",
       bgColor: "bg-green-500/10",
       borderColor: "border-green-500/20",
@@ -106,7 +107,7 @@ export default function ProcessPage() {
       id: "testing",
       title: "Testing & Quality Assurance",
       duration: "1-2 weeks",
-      icon: <img src="/images/3D-Icons/shield.png" alt="Testing" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/shield.png" alt="Testing" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-orange-500",
       bgColor: "bg-orange-500/10",
       borderColor: "border-orange-500/20",
@@ -130,7 +131,7 @@ export default function ProcessPage() {
       id: "deployment",
       title: "Deployment & Launch",
       duration: "1 week",
-      icon: <img src="/images/3D-Icons/3dicons-rocket-dynamic-color.png" alt="Deployment" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/3dicons-rocket-dynamic-color.png" alt="Deployment" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-red-500",
       bgColor: "bg-red-500/10",
       borderColor: "border-red-500/20",
@@ -154,7 +155,7 @@ export default function ProcessPage() {
       id: "support",
       title: "Support & Maintenance",
       duration: "Ongoing",
-      icon: <img src="/images/3D-Icons/phone.png" alt="Support" className="w-10 h-10 object-contain" />,
+      icon: <Image src="/images/3D-Icons/phone.png" alt="Support" width={40} height={40} className="w-10 h-10 object-contain" />,
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/20",

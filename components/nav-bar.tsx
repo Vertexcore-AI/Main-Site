@@ -65,11 +65,7 @@ export function NavBar() {
                 width={400}
                 height={100}
                 priority
-                className="h-20 w-auto object-contain"
-                style={{
-                  filter:
-                    "brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
-                }}
+                className="h-28 w-auto object-contain"
               />
             </div>
           </Link>
