@@ -6,8 +6,11 @@ import { motion } from "framer-motion"
 import { Lock, Users, Eye, EyeOff, Mail, ArrowRight, Sparkles } from "lucide-react"
 import { CodeRain } from "@/components/code-rain"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export default function CorporateLogin() {
+  const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -27,7 +30,7 @@ export default function CorporateLogin() {
     await new Promise((resolve) => setTimeout(resolve, 2000))
     console.log("Login attempt:", formData)
     setIsLoading(false)
-    window.location.href = "/dashboard"
+    router.push("/dashboard")
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +42,7 @@ export default function CorporateLogin() {
 
   const handleGoogleLogin = () => {
     console.log("Google login")
-    window.location.href = "/dashboard"
+    router.push("/dashboard")
   }
 
   return (
@@ -57,7 +60,7 @@ export default function CorporateLogin() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center"
           >
-            <img src="/images/newlogo.png" alt="VertexCore AI" className="w-48 h-12 object-contain mb-2" />
+            <Image src="/images/newlogo.png" alt="VertexCore AI" width={192} height={48} className="w-48 h-12 object-contain mb-2" />
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20">
               <Sparkles className="w-3 h-3 text-emerald-400" />
               <span className="text-xs font-medium text-emerald-400">Dashboard Access</span>

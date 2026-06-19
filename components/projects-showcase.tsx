@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Code, Globe, Lock, Shield, Terminal, ExternalLink, X, ChevronRight, Tag, Play } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
@@ -319,10 +320,12 @@ export function ProjectsShowcase() {
 
                   {/* Project image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div
                       className={`absolute inset-0 bg-gradient-to-t ${getCategoryColor(project.category)} opacity-20`}
@@ -406,10 +409,13 @@ export function ProjectsShowcase() {
             <div className="space-y-8">
               {/* Project image */}
               <div className="relative h-64 rounded-xl overflow-hidden">
-                <img
+                <Image
                   src={selectedProject.image || "/placeholder.svg"}
                   alt={selectedProject.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1200px) 100vw, 800px"
+                  priority
                 />
                 <div
                   className={`absolute inset-0 bg-gradient-to-t ${getCategoryColor(selectedProject.category)} opacity-20`}

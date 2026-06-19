@@ -1,0 +1,47 @@
+const en = {
+  "nav.services": "Services",
+  "nav.projects": "Projects",
+  "nav.process": "Process",
+  "nav.contact": "Contact",
+  "nav.support": "Support",
+  "nav.portfolio": "Portfolio",
+  "nav.partnership": "Partnership",
+  "cta.consultation": "Free Consultation",
+  "cta.explore": "Explore Services",
+  "cta.learn_more": "Learn More",
+  "cta.get_started": "Get Started",
+  "cta.contact_us": "Contact Us",
+  "cta.view_portfolio": "View Portfolio",
+  "hero.title": "Innovative Solutions",
+  "hero.subtitle": "Digital Technology & Mechanical Engineering",
+  "hero.description":
+    "Innovative solutions at the intersection of digital technology and mechanical engineering excellence.",
+  "hero.typing_text": "Let's create tomorrow's technology",
+  "services.title": "Services We Offer",
+  "services.subtitle": "Comprehensive solutions spanning digital innovation and mechanical excellence",
+  "services.web.title": "Web Development",
+  "services.web.description":
+    "We create everything from simple to complex websites, with flexible plans and custom solutions tailored to your needs.",
+  "services.mobile.title": "Mobile Apps",
+  "services.mobile.description": "Cross-platform mobile applications for iOS and Android",
+  "services.mechanical.title": "Mechanical Development",
+  "services.mechanical.description": "From initial concept to manufacturing-ready designs with precision engineering",
+  "services.patent.title": "Patent Services",
+  "services.patent.description": "Intellectual property protection for your innovations",
+  "services.digital.title": "Digital Systems Architecture",
+  "services.digital.description":
+    "We design and implement scalable, secure, and efficient digital infrastructure to power your business operations and innovation.",
+  "contact.title": "Ready to innovate?",
+  "contact.description":
+    "Let's discuss how we can bring your vision to life with cutting-edge technology and engineering excellence.",
+  "footer.powered_by": "Powered by VertexCore AI",
+  "footer.rights": "All rights reserved",
+  "process.concept": "Concept Design",
+  "process.modeling": "3D Modeling",
+  "process.prototyping": "Prototyping",
+  "process.testing": "Testing & Validation",
+  "process.manufacturing": "Manufacturing Prep",
+  "process.production": "Production Ready",
+}
+
+export default en

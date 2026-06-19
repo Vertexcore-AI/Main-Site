@@ -5,6 +5,7 @@ import { NavBar } from "@/components/nav-bar";
 import { Footer } from "@/components/footer";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function SupportPage() {
   return (
@@ -61,9 +62,11 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mb-6 mx-auto">
-                <img
+                <Image
                   src="/images/3D-Icons/shield.png"
                   alt="Shield"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -222,9 +225,11 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img
+                <Image
                   src="/images/3D-Icons/e-mails.png"
                   alt="Email"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -249,20 +254,17 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img
-                  src="/images/3D-Icons/chat.png"
+                <Image
+                  src="/images/3D-Icons/laptop.png"
                   alt="Chat"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Live Chat</h3>
               <p className="text-gray-400 mb-4">Chat with our team instantly</p>
-              <Button
-                variant="outline"
-                className="border-gray-600 text-white hover:bg-gray-800"
-              >
-                Start Chat
-              </Button>
+              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800">Start Chat</Button>
             </motion.div>
 
             {/* Phone Support */}
@@ -274,9 +276,11 @@ export default function SupportPage() {
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:border-emerald-500/30 transition-all duration-300"
             >
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                <img
+                <Image
                   src="/images/3D-Icons/phone.png"
                   alt="Phone"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -1,0 +1,47 @@
+const de = {
+  "nav.services": "Dienstleistungen",
+  "nav.projects": "Projekte",
+  "nav.process": "Prozess",
+  "nav.contact": "Kontakt",
+  "nav.support": "Support",
+  "nav.portfolio": "Portfolio",
+  "nav.partnership": "Partnerschaft",
+  "cta.consultation": "Kostenlose Beratung",
+  "cta.explore": "Services Erkunden",
+  "cta.learn_more": "Mehr Erfahren",
+  "cta.get_started": "Loslegen",
+  "cta.contact_us": "Kontaktieren Sie Uns",
+  "cta.view_portfolio": "Portfolio Ansehen",
+  "hero.title": "Innovative Lösungen",
+  "hero.subtitle": "Digitale Technologie & Maschinenbau",
+  "hero.description":
+    "Innovative Lösungen an der Schnittstelle von digitaler Technologie und maschinenbaulicher Exzellenz.",
+  "hero.typing_text": "Lassen Sie uns die Technologie von morgen schaffen",
+  "services.title": "Unsere Dienstleistungen",
+  "services.subtitle": "Umfassende Lösungen, die digitale Innovation und mechanische Exzellenz umfassen",
+  "services.web.title": "Webentwicklung",
+  "services.web.description":
+    "Wir erstellen alles von einfachen bis hin zu komplexen Websites mit flexiblen Plänen und maßgeschneiderten Lösungen für Ihre Bedürfnisse.",
+  "services.mobile.title": "Mobile Apps",
+  "services.mobile.description": "Plattformübergreifende mobile Anwendungen für iOS und Android",
+  "services.mechanical.title": "Mechanische Entwicklung",
+  "services.mechanical.description": "Vom ersten Konzept bis hin zu fertigungsreifen Designs mit Präzisionstechnik",
+  "services.patent.title": "Patent-Dienstleistungen",
+  "services.patent.description": "Schutz des geistigen Eigentums für Ihre Innovationen",
+  "services.digital.title": "Digitale Systemarchitektur",
+  "services.digital.description":
+    "Wir entwerfen und implementieren skalierbare, sichere und effiziente digitale Infrastruktur, um Ihre Geschäftsabläufe und Innovation zu unterstützen.",
+  "contact.title": "Bereit zu innovieren?",
+  "contact.description":
+    "Lassen Sie uns besprechen, wie wir Ihre Vision mit modernster Technologie und technischer Exzellenz zum Leben erwecken können.",
+  "footer.powered_by": "Betrieben von VertexCore AI",
+  "footer.rights": "Alle Rechte vorbehalten",
+  "process.concept": "Konzeptdesign",
+  "process.modeling": "3D-Modellierung",
+  "process.prototyping": "Prototyping",
+  "process.testing": "Testen & Validierung",
+  "process.manufacturing": "Fertigungsvorbereitung",
+  "process.production": "Produktionsbereit",
+}
+
+export default de

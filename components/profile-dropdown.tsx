@@ -4,6 +4,7 @@ import type React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Building, DollarSign, Users, Target, X, ChevronDown, ChevronUp } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 type ProfileData = {
   businessName?: string
@@ -23,6 +24,7 @@ type ProfileData = {
 }
 
 export function ProfileDropdown() {
+  const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [profileData, setProfileData] = useState<ProfileData>({})
@@ -165,7 +167,7 @@ export function ProfileDropdown() {
                 Complete
               </button>
               <button
-                onClick={() => (window.location.href = "/consultation")}
+                onClick={() => router.push("/consultation")}
                 className="flex-1 px-3 py-1.5 bg-primary text-white rounded-md hover:bg-primary/90 transition-all text-xs font-medium"
               >
                 Schedule

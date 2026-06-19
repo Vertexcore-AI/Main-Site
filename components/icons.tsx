@@ -1,5 +1,3 @@
-"use client"
-
 import type * as React from "react"
 import Image from "next/image"
 import { Sun, Moon, Loader2 } from "lucide-react"

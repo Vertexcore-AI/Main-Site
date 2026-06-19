@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
-import { gsap } from "gsap"
+
 import Carousel3D from "@/components/carousel-3d"
 import {
   Globe,
@@ -549,15 +550,10 @@ const ParticleCard: React.FC<{
     timeoutsRef.current = []
 
     particlesRef.current.forEach((particle) => {
-      gsap.to(particle, {
-        scale: 0,
-        opacity: 0,
-        duration: 0.3,
-        ease: "back.in(1.7)",
-        onComplete: () => {
-          particle.parentNode?.removeChild(particle)
-        },
-      })
+      particle.style.transition = "transform 0.3s ease, opacity 0.3s ease"
+      particle.style.transform = "scale(0)"
+      particle.style.opacity = "0"
+      setTimeout(() => particle.parentNode?.removeChild(particle), 300)
     })
     particlesRef.current = []
   }, [])
@@ -574,28 +570,26 @@ const ParticleCard: React.FC<{
         if (!isHoveredRef.current || !cardRef.current) return
 
         const clone = particle.cloneNode(true) as HTMLDivElement
+        clone.style.transform = "scale(0)"
+        clone.style.opacity = "0"
+        clone.style.transition = "transform 0.3s ease, opacity 0.3s ease"
         cardRef.current.appendChild(clone)
         particlesRef.current.push(clone)
 
-        gsap.fromTo(clone, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.7)" })
-
-        gsap.to(clone, {
-          x: (Math.random() - 0.5) * 100,
-          y: (Math.random() - 0.5) * 100,
-          rotation: Math.random() * 360,
-          duration: 2 + Math.random() * 2,
-          ease: "none",
-          repeat: -1,
-          yoyo: true,
+        requestAnimationFrame(() => {
+          clone.style.transform = "scale(1)"
+          clone.style.opacity = "1"
         })
 
-        gsap.to(clone, {
-          opacity: 0.3,
-          duration: 1.5,
-          ease: "power2.inOut",
-          repeat: -1,
-          yoyo: true,
-        })
+        const x = (Math.random() - 0.5) * 100
+        const y = (Math.random() - 0.5) * 100
+        const rotation = Math.random() * 360
+
+        setTimeout(() => {
+          clone.style.transition = "transform 2s ease-in-out, opacity 1.5s ease-in-out"
+          clone.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`
+          clone.style.opacity = "0.3"
+        }, 300)
       }, index * 100)
 
       timeoutsRef.current.push(timeoutId)
@@ -699,16 +693,22 @@ function MobileUIGraphic({ service }: { service: any }) {
 
             {/* App Content - Template Images */}
             <div className="relative h-[calc(100%-48px)] bg-white overflow-hidden">
-              <motion.img
+              <motion.div
                 key={activeImageIndex}
-                src={templateImages[activeImageIndex].img}
-                alt={templateImages[activeImageIndex].title}
-                className="w-full h-full object-cover"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-              />
+                className="w-full h-full relative"
+              >
+                <Image
+                  src={templateImages[activeImageIndex].img}
+                  alt={templateImages[activeImageIndex].title}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </motion.div>
 
               {/* Navigation Buttons */}
               <button
@@ -775,16 +775,22 @@ function DigitalSystemsUIGraphic({ service }: { service: any }) {
       {/* Enhanced System Architecture with Image Carousel */}
       <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 shadow-lg">
         <div className="relative min-h-[240px] flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-gray-100 to-gray-200">
-          <motion.img
+          <motion.div
             key={activeImageIndex}
-            src={systemImages[activeImageIndex].img}
-            alt={systemImages[activeImageIndex].title}
-            className="w-full h-full object-contain"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-          />
+            className="w-full h-[240px] relative"
+          >
+            <Image
+              src={systemImages[activeImageIndex].img}
+              alt={systemImages[activeImageIndex].title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </motion.div>
 
           {/* Navigation Buttons */}
           <button

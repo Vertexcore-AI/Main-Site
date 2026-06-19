@@ -7,6 +7,7 @@ import { DashboardChart } from "@/components/dashboard-chart";
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRouter } from "next/navigation";
 import {
   ArrowUpRight,
   ChevronRight,
@@ -222,6 +223,7 @@ export function ExpertiseSection(): ReactElement {
                 playsInline
                 className="w-full h-auto object-contain"
               >
+                <source src="/Videos/logo_vid.webm" type="video/webm" />
                 <source src="/Videos/logo_vid.mp4" type="video/mp4" />
               </video>
             </div>
@@ -277,7 +279,8 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source src="/Videos/video-rec.mp4" type="video/mp4" />
+                  <source src="/Videos/video-rec.webm" type="video/webm" />
+                  <source src="/Videos/video-rec.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
@@ -410,7 +413,8 @@ export function ExpertiseSection(): ReactElement {
                       });
                     }}
                   >
-                    <source src="/Videos/oilspill.mp4" type="video/mp4" />
+                  <source src="/Videos/oilspill.webm" type="video/webm" />
+                  <source src="/Videos/oilspill.mp4" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-black/50"></div>
                 </div>
@@ -876,6 +880,7 @@ function CompanyLogoTicker(): ReactElement {
 }
 
 function ServiceSelectionCard(): ReactElement {
+  const router = useRouter();
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -1165,7 +1170,7 @@ Submitted at: ${new Date().toLocaleString()}
           </p>
           <div className="pt-4">
             <button
-              onClick={() => (window.location.href = "/consultation")}
+              onClick={() => router.push("/consultation")}
               className="px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-400 transition-colors text-sm font-medium"
             >
               Schedule Consultation
