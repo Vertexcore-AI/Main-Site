@@ -7,7 +7,7 @@
                 "npx",
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "C:\\Users\\User\\Desktop\\vertexcoreai-main\\cst-profile"
+                "E:\\Herd\\cst-profile"
             ]
         },
         "browsermcp": {
@@ -24,10 +24,6 @@
         "context7": {
             "command": "cmd",
             "args": ["/c", "npx", "-y", "@upstash/context7-mcp"]
-        },
-        "motion": {
-            "command": "cmd",
-            "args": ["/c", "npx", "-y", "motion-ai"]
         },
         "reactbits": {
             "command": "cmd",

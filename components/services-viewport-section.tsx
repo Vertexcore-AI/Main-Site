@@ -236,15 +236,8 @@ export function ServicesViewportSection() {
     router.push("/projects")
   }
 
-  const scrollToService = (index: number) => {
-    serviceRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    })
-  }
-
   return (
-    <section ref={containerRef} className="relative py-20 px-4 sm:px-6 bg-black overflow-hidden">
+    <section ref={containerRef} className="relative py-20 px-4 sm:px-6 lg:px-12 xl:px-20 bg-black overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-black" />
@@ -269,30 +262,6 @@ export function ServicesViewportSection() {
               backgroundSize: "60px 60px",
             }}
           />
-        </div>
-      </div>
-
-      {/* Dot Navigation - Left Side */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-20 hidden lg:block">
-        <div className="flex flex-col space-y-4">
-          {services.map((service, index) => (
-            <button
-              key={service.id}
-              onClick={() => scrollToService(index)}
-              className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
-                activeService === index
-                  ? "bg-white scale-125 shadow-lg"
-                  : "bg-white/30 hover:bg-white/60 hover:scale-105"
-              }`}
-            >
-              {/* Tooltip */}
-              <div className="absolute left-6 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="bg-black/90 text-white px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap border border-white/20">
-                  {service.title}
-                </div>
-              </div>
-            </button>
-          ))}
         </div>
       </div>
 

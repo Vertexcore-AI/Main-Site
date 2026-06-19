@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import type { ReactElement } from "react";
 import { DashboardChart } from "@/components/dashboard-chart";
+import { CpuArchitecture } from "@/components/ui/cpu-architecture";
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
@@ -203,7 +204,7 @@ export function ExpertiseSection(): ReactElement {
   return (
     <section
       id="expertise"
-      className="py-20 px-4 sm:px-6 relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-12 xl:px-20 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -214,23 +215,58 @@ export function ExpertiseSection(): ReactElement {
           className="space-y-12"
         >
           {/* Section header with 0-0 to 0-1 animation */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-4">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto object-contain"
-              >
-                <source src="/Videos/logo_vid.webm" type="video/webm" />
-                <source src="/Videos/logo_vid.mp4" type="video/mp4" />
-              </video>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-9 mt-12 mb-20 lg:mb-28">
+            <div className="lg:col-span-5 flex items-center justify-center">
+              {/* PCB environment — solid dark board; only the neon traces glow */}
+              <div className="group relative w-full overflow-hidden rounded-xl border border-slate-700/40 bg-[#05080f]">
+                {/* faint dark grid (no glow) */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(rgba(148,163,184,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.6) 1px, transparent 1px)",
+                    backgroundSize: "22px 22px",
+                  }}
+                />
+                {/* deep vignette for a solid, recessed feel */}
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(2,4,9,0.9)_100%)]" />
+
+                {/* subtle corner registration ticks */}
+                <div className="pointer-events-none absolute left-3 top-3 h-4 w-4 border-l border-t border-slate-600/50" />
+                <div className="pointer-events-none absolute right-3 top-3 h-4 w-4 border-r border-t border-slate-600/50" />
+                <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 border-b border-l border-slate-600/50" />
+                <div className="pointer-events-none absolute bottom-3 right-3 h-4 w-4 border-b border-r border-slate-600/50" />
+
+                {/* schematic label header */}
+                <div className="relative z-10 flex items-center justify-between px-4 pt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400/70">
+                  <span>VERTEXCORE AI</span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                    ACTIVE
+                  </span>
+                </div>
+
+                {/* the chip + PCB island */}
+                <div className="relative z-10 px-4 pb-4 pt-1">
+                  <CpuArchitecture
+                    className="relative w-full h-auto scale-110 text-slate-600/50"
+                    text="VertexCore"
+                    showPcbEnvironment
+                  />
+                </div>
+
+                {/* schematic footer dims */}
+                <div className="relative z-10 flex items-center justify-between border-t border-slate-700/30 px-6 py-4 font-mono text-[9px] tracking-widest text-slate-500/50">
+                  <span>NODES: 08</span>
+                  <span>REV 2.6</span>
+                  <span>SCALE 1:1</span>
+                </div>
+              </div>
             </div>
 
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-8 space-y-6"
+              className="lg:col-span-7 space-y-6"
             >
               {/* <div className="space-y-2">
                 <div className="flex items-center space-x-3">
@@ -249,7 +285,27 @@ export function ExpertiseSection(): ReactElement {
                 </div>
               </div> */}
 
-              <TypingMissionText />
+              {/* Schematic-style framing to match the PCB panel */}
+              <div className="relative pl-5">
+                {/* left accent rail */}
+                <div className="absolute left-0 top-1 bottom-1 w-px bg-gradient-to-b from-emerald-400/60 via-blue-400/40 to-transparent" />
+                <div className="absolute left-[-3px] top-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+
+                {/* mono schematic label */}
+                <div className="mb-4 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400/70">
+                  <span>// MISSION_STATEMENT</span>
+                  <span className="h-px flex-1 bg-slate-600/30" />
+                  <span className="text-emerald-400/70">v2.6</span>
+                </div>
+
+                <TypingMissionText />
+
+                {/* mono footer tag */}
+                <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500/50">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-400" />
+                  <span>SYSTEM · ONLINE</span>
+                </div>
+              </div>
             </motion.div>
           </div>
 
