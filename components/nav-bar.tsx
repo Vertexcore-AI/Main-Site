@@ -51,7 +51,7 @@ export function NavBar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
@@ -65,7 +65,7 @@ export function NavBar() {
                 width={400}
                 height={100}
                 priority
-                className="h-28 w-auto object-contain"
+                className="h-10 sm:h-11 w-auto object-contain"
               />
             </div>
           </Link>
