@@ -52,20 +52,20 @@ export function NavBar() {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 overflow-visible"
           >
-            <div>
+            <div className="overflow-visible">
               <Image
                 src="/images/newlogo.png"
                 alt="VertexCore AI"
                 width={400}
                 height={100}
                 priority
-                className="h-10 sm:h-11 w-auto object-contain"
+                className="h-16 w-auto object-contain scale-[1.7] origin-left"
               />
             </div>
           </Link>
