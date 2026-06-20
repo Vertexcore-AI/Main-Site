@@ -1,0 +1,264 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - navigation [ref=e4]:
+        - generic [ref=e6]:
+          - link "VertexCore AI" [ref=e7] [cursor=pointer]:
+            - /url: /
+            - img "VertexCore AI" [ref=e9]
+          - generic [ref=e10]:
+            - link "Services" [ref=e11] [cursor=pointer]:
+              - /url: /services
+              - generic [ref=e12]: Services
+            - link "Case Studies" [ref=e13] [cursor=pointer]:
+              - /url: /case-studies
+              - generic [ref=e14]: Case Studies
+            - link "Process" [ref=e15] [cursor=pointer]:
+              - /url: /process
+              - generic [ref=e16]: Process
+            - link "Support" [ref=e17] [cursor=pointer]:
+              - /url: /support
+              - generic [ref=e18]: Support
+            - link "Projects" [ref=e19] [cursor=pointer]:
+              - /url: /projects
+              - generic [ref=e20]: Projects
+            - link "Contact Us" [ref=e21] [cursor=pointer]:
+              - /url: /contact
+              - generic [ref=e22]: Contact Us
+      - generic [ref=e25]:
+        - paragraph [ref=e27]: Building The Intelligence That Shapes The Future
+        - heading "Let's create tomorrow's" [level=1] [ref=e30]:
+          - generic [ref=e31]: Let's create tomorrow's
+        - paragraph [ref=e37]:
+          - text: Transforming
+          - generic [ref=e38]: ideas
+          - text: into powerful
+          - generic [ref=e40]: digital solutions
+          - text: that drive growth and innovation for
+          - generic [ref=e42]: forward-thinking
+          - text: businesses.
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]: VERTEXCORE AI
+              - generic [ref=e52]: ACTIVE
+            - img [ref=e55]
+            - generic [ref=e109]:
+              - generic [ref=e110]: "NODES: 08"
+              - generic [ref=e111]: REV 2.6
+              - generic [ref=e112]: SCALE 1:1
+          - generic [ref=e114]:
+            - generic [ref=e117]:
+              - generic [ref=e118]: // MISSION_STATEMENT
+              - generic [ref=e120]: v2.6
+            - heading [level=3] [ref=e121]
+            - generic [ref=e125]: SYSTEM · ONLINE
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - img [ref=e130]
+            - generic [ref=e136]:
+              - generic [ref=e138]: VERTEXCORE AI
+              - generic [ref=e139]:
+                - heading "Revolutionizing Intelligence — Building the Future of AI Innovation" [level=3] [ref=e140]
+                - paragraph [ref=e141]: Experience the evolution of artificial intelligence and digital transformation with VertexCore AI — where technology meets precision, performance, and innovation.
+          - generic [ref=e143]:
+            - img [ref=e145]
+            - generic [ref=e151]:
+              - generic [ref=e153]: VERTEXCORE AI
+              - generic [ref=e154]:
+                - heading "Transforming Vision — Shaping the Future of Intelligent Systems" [level=3] [ref=e155]
+                - paragraph [ref=e156]: Explore the evolution of computer vision and AI technologies with VertexCore AI — where innovation meets accuracy, performance, and transformative insights.
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - heading "Services That Transform" [level=2] [ref=e163]
+          - paragraph [ref=e164]: Comprehensive solutions designed to accelerate your business growth and digital transformation
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - generic [ref=e169]:
+              - generic [ref=e170]:
+                - img [ref=e172]
+                - generic [ref=e175]: Web Experiences
+              - heading "Website Development" [level=3] [ref=e176]
+              - paragraph [ref=e177]: Transform your digital presence with cutting-edge websites that convert visitors into customers. Built with the latest technologies for maximum performance and user experience.
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - img [ref=e181]
+                  - generic [ref=e186]: Lightning-fast loading speeds
+                - generic [ref=e187]:
+                  - img [ref=e189]
+                  - generic [ref=e193]: Conversion-optimized design
+                - generic [ref=e194]:
+                  - img [ref=e196]
+                  - generic [ref=e199]: 99.9% uptime guarantee
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - generic [ref=e202]: 340%
+                  - generic [ref=e203]: Average Speed Increase
+                - generic [ref=e204]:
+                  - generic [ref=e205]: 127%
+                  - generic [ref=e206]: Conversion Rate Boost
+                - generic [ref=e207]:
+                  - generic [ref=e208]: 98%
+                  - generic [ref=e209]: Client Satisfaction
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - img "React" [ref=e212]
+                  - generic [ref=e213]: React
+                - generic [ref=e214]:
+                  - img "Bootstrap" [ref=e215]
+                  - generic [ref=e216]: Bootstrap
+                - generic [ref=e217]:
+                  - img "Tailwind CSS" [ref=e218]
+                  - generic [ref=e219]: Tailwind CSS
+            - generic [ref=e221]:
+              - generic [ref=e222]:
+                - img [ref=e224]
+                - generic [ref=e226]: Native & Cross-Platform
+              - heading "Mobile App Development" [level=3] [ref=e227]
+              - paragraph [ref=e228]: Create powerful mobile experiences that engage users and drive business growth. From concept to app store, we deliver apps that users love and businesses depend on.
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - img [ref=e232]
+                  - generic [ref=e237]: Cross-platform compatibility
+                - generic [ref=e238]:
+                  - img [ref=e240]
+                  - generic [ref=e242]: Real-time synchronization
+                - generic [ref=e243]:
+                  - img [ref=e245]
+                  - generic [ref=e248]: Advanced security features
+              - generic [ref=e249]:
+                - generic [ref=e250]:
+                  - generic [ref=e251]: 4.8★
+                  - generic [ref=e252]: App Store Rating
+                - generic [ref=e253]:
+                  - generic [ref=e254]: 85%
+                  - generic [ref=e255]: User Retention
+                - generic [ref=e256]:
+                  - generic [ref=e257]: 2x Faster
+                  - generic [ref=e258]: Development Speed
+              - generic [ref=e259]:
+                - generic [ref=e260]:
+                  - img "React Native" [ref=e261]
+                  - generic [ref=e262]: React Native
+                - generic [ref=e263]:
+                  - img "Flutter" [ref=e264]
+                  - generic [ref=e265]: Flutter
+                - generic [ref=e266]:
+                  - img "Swift" [ref=e267]
+                  - generic [ref=e268]: Swift
+                - generic [ref=e269]:
+                  - img "Kotlin" [ref=e270]
+                  - generic [ref=e271]: Kotlin
+                - generic [ref=e272]:
+                  - img "Firebase" [ref=e273]
+                  - generic [ref=e274]: Firebase
+            - generic [ref=e276]:
+              - generic [ref=e277]:
+                - img [ref=e279]
+                - generic [ref=e281]: Automation & Integration
+              - heading "Digital Systems" [level=3] [ref=e282]
+              - paragraph [ref=e283]: Streamline your operations with intelligent digital systems that automate workflows, integrate seamlessly, and scale with your business growth.
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - img [ref=e287]
+                  - generic [ref=e298]: Workflow automation
+                - generic [ref=e299]:
+                  - img [ref=e301]
+                  - generic [ref=e305]: Data integration
+                - generic [ref=e306]:
+                  - img [ref=e308]
+                  - generic [ref=e310]: Cloud-native architecture
+              - generic [ref=e311]:
+                - generic [ref=e312]:
+                  - generic [ref=e313]: 250%
+                  - generic [ref=e314]: Efficiency Increase
+                - generic [ref=e315]:
+                  - generic [ref=e316]: 60%
+                  - generic [ref=e317]: Cost Reduction
+                - generic [ref=e318]:
+                  - generic [ref=e319]: 95%
+                  - generic [ref=e320]: Error Reduction
+              - generic [ref=e321]:
+                - generic [ref=e322]:
+                  - img "Node.js" [ref=e323]
+                  - generic [ref=e324]: Node.js
+                - generic [ref=e325]:
+                  - img "Python" [ref=e326]
+                  - generic [ref=e327]: Python
+                - generic [ref=e328]:
+                  - img "AWS" [ref=e329]
+                  - generic [ref=e330]: AWS
+                - generic [ref=e331]:
+                  - img "Docker" [ref=e332]
+                  - generic [ref=e333]: Docker
+                - generic [ref=e334]:
+                  - img "Laravel" [ref=e335]
+                  - generic [ref=e336]: Laravel
+              - button "View Our Projects" [ref=e337] [cursor=pointer]:
+                - generic [ref=e338]: View Our Projects
+                - img [ref=e339]
+          - generic [ref=e345]:
+            - generic [ref=e352]:
+              - img [ref=e353]
+              - text: vertexcore.ai
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: 9:41
+                    - generic:
+                      - img
+                      - img
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - img
+                  - img
+                  - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: +250%
+                      - generic: Efficiency
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: 95%
+                      - generic: Automation
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: 60%
+                      - generic: Cost ↓
+                  - generic: Live · sync complete
+      - generic [ref=e365]:
+        - generic [ref=e366]:
+          - heading "Ready to innovate?" [level=2] [ref=e367]
+          - paragraph [ref=e368]: Let's discuss how we can transform your vision into reality with cutting-edge technology and strategic innovation.
+        - generic [ref=e371]:
+          - link "Services" [ref=e372] [cursor=pointer]:
+            - /url: /services
+            - generic [ref=e374]: Services
+          - link "AI Solutions" [ref=e375] [cursor=pointer]:
+            - /url: /consultation
+            - generic [ref=e376]:
+              - img [ref=e377]
+              - generic [ref=e379]: AI Solutions
+          - link "Support" [ref=e380] [cursor=pointer]:
+            - /url: /support
+            - generic [ref=e381]:
+              - img [ref=e382]
+              - generic [ref=e384]: Support
+      - generic [ref=e388]: © 2026 VertexCore AI. All rights reserved.
+  - region "Notifications alt+T"
