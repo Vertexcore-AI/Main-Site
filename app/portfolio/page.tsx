@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import PortfolioClient from "@/components/PortfolioClient";
 
 export const metadata: Metadata = {
-  title: "Success Stories & Case Studies - VertexCore AI Portfolio",
+  title: "Portfolio - VertexCore AI",
   description:
-    "Explore our portfolio of successful projects including IoT smart tracking, AI chat platforms, healthcare tech, and more success stories from VertexCore AI.",
+    "Explore our portfolio spanning Beauty & Wellness, Hospitality & Food Service, Construction & Engineering, and Retail & Home Improvement.",
   openGraph: {
-    title: "VertexCore AI Portfolio - Showcasing Digital Excellence",
+    title: "VertexCore AI Portfolio",
     description:
-      "A deep dive into the revolutionary solutions we've built for our clients worldwide.",
+      "Showcasing our work across four key industry verticals.",
     url: "https://vertexcore.ai/portfolio",
   },
 };
