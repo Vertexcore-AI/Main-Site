@@ -68,3 +68,5 @@ When making changes:
 - Maintain consistency with the translation system for any user-facing text
 - Respect the theme system when adding new styled components
 - Use TypeScript throughout with proper type definitions
+
+root@vmi2924948:/var/www/html# NEXT_TELEMETRY_DISABLED=1 npx next build

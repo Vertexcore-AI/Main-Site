@@ -9,20 +9,6 @@ import { CheckCircle, Code } from "lucide-react"
 
 const projects = [
   {
-    id: "gaming-forum",
-    name: "Gaming Forum",
-    description:
-      "A comprehensive gaming community platform with user discussions, game reviews, and social features. Built with Laravel and modern web technologies, it provides a seamless user experience with real-time discussions, user profiles, game databases, and community-driven content.",
-    image: "/images/Gaming-forum/games.png",
-    features: [
-      "Real-time discussions and threaded conversations",
-      "User authentication and profile management",
-      "Game database with ratings and review system",
-      "Responsive design for optimal mobile experience",
-    ],
-    technologies: ["Laravel", "Blade Files", "TailwindCSS", "SQLite Database"],
-  },
-  {
     id: "spillvision",
     name: "SpillVision",
     description:
@@ -49,35 +35,6 @@ const projects = [
       "Crop analysis and yield prediction",
     ],
     technologies: ["Python", "YOLO", "Computer Vision", "Roboflow (Dataset)"],
-  },
-  {
-    id: "restaurant-system",
-    name: "Restaurant System",
-    description:
-      "Complete restaurant management solution with ordering, inventory, analytics, and AI chatbot support. Built with Laravel and enhanced with Python analytics, this system handles order management, inventory tracking, staff scheduling, and customer relationship management.",
-    image: "/images/Restaurent/foodix.png",
-    features: [
-      "Comprehensive order and inventory management",
-      "Python-based analytics for sales insights",
-      "AI chatbot for 24/7 customer support",
-      "Real-time kitchen display system",
-    ],
-    technologies: ["Laravel", "Blade Files", "MySQL Database", "Python (Analytics)", "Chatbase.co (Chatbot Training)"],
-  },
-
-  {
-    id: "villa-booking",
-    name: "Villa Booking System",
-    description:
-      "Luxury villa reservation platform with booking management, analytics, and AI customer support. The system features comprehensive booking management, availability calendars, payment processing, and customer relationship tools with Python-powered analytics.",
-    image: "/images/Villa-Booking/villa_booking.png",
-    features: [
-      "Comprehensive booking management system",
-      "Secure payment processing and confirmations",
-      "Python analytics for revenue optimization",
-      "AI chatbot for automated customer support",
-    ],
-    technologies: ["Laravel", "Blade Files", "MySQL Database", "Python (Analytics)", "Chatbase.co (Chatbot Training)"],
   },
 ]
 
