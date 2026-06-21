@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "VertexCore AI Portfolio",
     description:
       "Showcasing our work across four key industry verticals.",
-    url: "https://vertexcore.ai/portfolio",
+    url: "https://vertexcore.ai/portfolio-live",
   },
 };
 
