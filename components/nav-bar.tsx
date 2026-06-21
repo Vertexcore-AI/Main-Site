@@ -35,7 +35,7 @@ export function NavBar() {
     { name: t("nav.process"), href: "/process" },
     { name: t("nav.support"), href: "/support" },
     { name: "Projects", href: "/projects" },
-    { name: t("nav.portfolio"), href: "/portfolio-live" },
+    { name: t("nav.portfolio"), href: "/live-sites" },
     { name: "Contact Us", href: "/contact" },
   ];
 
