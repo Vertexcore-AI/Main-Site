@@ -31,7 +31,7 @@ export function FooterPopup() {
       items: [
         { label: "About Us", href: "/about" },
         { label: "Our Process", href: "/process" },
-        { label: "Portfolio", href: "/portfolio" },
+        { label: "Portfolio", href: "/portfolio-live" },
         { label: "Careers", href: "/careers" },
         { label: "Blog", href: "/blog" },
         { label: "Contact", href: "/contact" },
