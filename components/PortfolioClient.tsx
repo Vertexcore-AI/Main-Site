@@ -54,7 +54,7 @@ const categories: Category[] = [
         type: "Luxury Hotel & Resort Website",
         description: "A premium hospitality site featuring online bookings, luxury suites showcase, amenity tours, and elegant typography.",
         tags: ["Hotel", "Resort", "Booking System", "Tailwind CSS"],
-        image: "/images/Template_ss/Hotel.PNG",
+        image: "/images/portfolio/aurora-grand.png",
         demoUrl: "https://vertexcoreai.com/demo_sites/Aurora-Grand-Hotel/",
  
       },
@@ -64,7 +64,7 @@ const categories: Category[] = [
         type: "Beach Resort Website",
         description: "Modern vacation resort experience platform designed to showcase accommodations, amenities, and direct booking capabilities.",
         tags: ["Tourism", "Resort", "Responsive Design", "Interactive Maps"],
-        image: "/images/Villa-Booking/villa_booking.png",
+        image: "/images/portfolio/blue-lagoon.png",
         demoUrl: "https://vertexcoreai.com/demo_sites/Blue-Lagoon-Resort/",
 
       },
@@ -74,8 +74,8 @@ const categories: Category[] = [
         type: "Fine Dining Website",
         description: "A sleek restaurant template with virtual menu display, reservation scheduling, culinary galleries, and story blocks.",
         tags: ["Restaurant", "Menu Catalog", "Reservations", "SEO Optimized"],
-        image: "/images/Template_ss/Resturant_1.PNG",
-        demoUrl: "",
+        image: "/images/portfolio/savora.png",
+        demoUrl: "https://vertexcoreai.com/demo_sites/Savora/index.html",
        
       },
       {
@@ -105,12 +105,12 @@ const categories: Category[] = [
     projects: [
       {
         id: "glowza-spa",
-        brand: "Glowza Spa",
+        brand: "Glowza",
         type: "Beauty Salon & Spa Website",
         description: "Elegant, clean layouts built for premium salons, spas, and aesthetic centers. Features services pricing grids and booking calls.",
         tags: ["Spa", "Salon", "Service Pricing", "Lead Generation"],
-        image: "/images/Template_ss/Cosmetics.PNG",
-        demoUrl: "",
+        image: "/images/portfolio/glowza.png",
+        demoUrl: "https://vertexcoreai.com/demo_sites/Glowza/",
         badge: "Trending",
       }
     ]
@@ -143,8 +143,8 @@ const categories: Category[] = [
         type: "Home Decor & Catalog Website",
         description: "Sophisticated catalog and product showroom site showcasing high-end tiles, hardware, or home improvement items.",
         tags: ["Retail", "Product Catalog", "Room Visualizer", "Inquiry Forms"],
-        image: "/images/Template_ss/Ecom.PNG",
-        demoUrl: "",
+        image: "/images/portfolio/mosaica.png",
+        demoUrl: "https://vertexcoreai.com/demo_sites/Mosaica/index.html",
         badge: "Product Showcase",
       }
     ]
@@ -194,8 +194,8 @@ const categories: Category[] = [
         type: "HVAC & Engineering Services",
         description: "Professional utility and commercial services page with clear service descriptions, service areas map, and simple quote calculator.",
         tags: ["HVAC", "Maintenance Services", "Quote Form"],
-        image: "/images/Template_ss/Dental.PNG",
-        demoUrl: "",
+        image: "/images/portfolio/ventora.png",
+        demoUrl: "https://vertexcoreai.com/demo_sites/Ventora/index.html",
       }
     ]
   }
