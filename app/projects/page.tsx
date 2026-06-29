@@ -826,7 +826,7 @@ export default function ProjectsPage() {
                 {filteredProjects.map((project) => (
                   <div
                     key={project.id}
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() => { setCurrentScreenshotIndex(0); setSelectedProject(project); }}
                     className={`cursor-pointer rounded-lg border transition-all duration-300 ${
                       selectedProject?.id === project.id
                         ? "bg-black border-white/30 shadow-lg"
