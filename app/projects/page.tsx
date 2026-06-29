@@ -45,8 +45,8 @@ export default function ProjectsPage() {
   const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
 
   const filters = [
-    { id: "all", label: "All Projects", count: 5 },
-    { id: "web", label: "Web Development", count: 5 },
+    { id: "all", label: "All Projects", count: 6 },
+    { id: "web", label: "Web Development", count: 6 },
   ];
 
   const projects = [
@@ -197,6 +197,61 @@ export default function ProjectsPage() {
           "Scalable Architecture for future expansion",
         ],
         technologies: ["Laravel", "Next.js", "MySQL"],
+      },
+    },
+    {
+      id: "pave",
+      name: "PAVE",
+      client: "Pan African Vision for the Environment",
+      clientUrl: "pavenigeria.org",
+      category: "web",
+      status: "completed",
+      budget: "$85K",
+      timeline: "4 months",
+      completion: 100,
+      rating: 5,
+      description:
+        "A UNEP & UNCCD accredited pan-African NGO advancing climate resilience, water security, clean energy transitions, and circular economy solutions across the continent.",
+      image: "/images/PAVE/PAVE.png",
+      logo: "/images/PAVE/PAVE.png",
+      tags: [
+        "Environmental NGO",
+        "Climate Resilience",
+        "WASH",
+        "Clean Energy",
+        "Laravel",
+      ],
+      metrics: {
+        timeSaved: "100%",
+        errorReduction: "40+",
+      },
+      metricLabels: {
+        timeSaved: "Dynamic Content Updates",
+        errorReduction: "Projects Delivered",
+      },
+      featured: true,
+      previewUrl: "",
+      hasLivePreview: true,
+      isImage: true,
+      screenshots: [
+        "/images/PAVE/Screenshot 2026-06-29 110652.png",
+        "/images/PAVE/Screenshot 2026-06-29 110715.png",
+        "/images/PAVE/Screenshot 2026-06-29 110828.png",
+        "/images/PAVE/Screenshot 2026-06-29 110927.png",
+      ],
+      details: {
+        overview:
+          "PAVE (Pan African Vision for the Environment) is a UNEP and UNCCD-accredited environmental organization dedicated to advancing sustainable development, environmental governance, and community resilience across Africa. Through research, policy engagement, capacity building, and on-the-ground initiatives, PAVE addresses critical issues including water security, clean energy, waste management, disaster risk reduction, sustainable agriculture, ocean conservation, and inclusive development. The website features a modern, responsive design that presents the organization's programs, partnerships, and impact in a clear, engaging, and accessible experience across all devices.",
+        features: [
+          "Modern responsive design optimized for environmental advocacy and storytelling",
+          "Comprehensive thematic area pages with detailed program information",
+          "Dynamic project portfolio showcasing field initiatives across Africa",
+          "News and blog platform for sharing environmental action stories",
+          "Impact metrics dashboard displaying volunteer, partnership, and project statistics",
+          "Partner showcase and stakeholder engagement portal",
+          "Integrated contact and newsletter subscription system",
+        ],
+        technologies: ["Laravel", "Next.js", "SQLite"],
       },
     },
     {
@@ -577,6 +632,9 @@ export default function ProjectsPage() {
                         <p className="text-sm text-gray-400">
                           {project.client}
                         </p>
+                        {project.clientUrl && (
+                          <p className="text-xs text-gray-500">{project.clientUrl}</p>
+                        )}
                         <div className="flex items-center space-x-2 mt-2">
                           <span
                             className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(
@@ -870,6 +928,9 @@ export default function ProjectsPage() {
                             <p className="text-xs text-gray-400 mb-1">
                               {project.client}
                             </p>
+                            {project.clientUrl && (
+                              <p className="text-xs text-gray-500 -mt-1 mb-1">{project.clientUrl}</p>
+                            )}
                             <p className="text-xs text-gray-500 line-clamp-2 mb-2">
                               {project.description}
                             </p>
@@ -921,9 +982,12 @@ export default function ProjectsPage() {
                         <h2 className="text-3xl font-bold text-white mb-2">
                           {selectedProject.name}
                         </h2>
-                        <p className="text-lg text-gray-400 mb-3">
+                        <p className="text-lg text-gray-400 mb-1">
                           {selectedProject.client}
                         </p>
+                        {selectedProject.clientUrl && (
+                          <p className="text-base text-gray-500 mb-3">{selectedProject.clientUrl}</p>
+                        )}
                         <div className="flex items-center space-x-4">
                           <span
                             className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(
