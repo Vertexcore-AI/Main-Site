@@ -11,7 +11,6 @@ export interface CpuArchitectureSvgProps {
   animateText?: boolean;
   animateLines?: boolean;
   animateMarkers?: boolean;
-  /** Render the teal PCB-island outline, mounting pads, and neon pulse dashes. */
   showPcbEnvironment?: boolean;
 }
 
@@ -34,7 +33,6 @@ const CpuArchitecture = ({
       height={height}
       viewBox="0 0 200 100"
     >
-      {/* Paths */}
       <g
         stroke="currentColor"
         fill="none"
@@ -43,35 +41,26 @@ const CpuArchitecture = ({
         pathLength="100"
         markerStart="url(#cpu-circle-marker)"
       >
-        {/* 1st — top edge, extended down to y33 */}
         <path
           strokeDasharray="100 100"
           pathLength="100"
           d="M 10 20 h 75.5 q 5 0 5 5 v 20"
         />
-        {/* 2nd — top edge, extended down to y33 */}
         <path
           strokeDasharray="100 100"
           pathLength="100"
           d="M 180 10 h -65.7 q -5 0 -5 5 v 15"
         />
-        {/* 3rd — right edge, extended to x125.5 */}
         <path d="M 135 20 v 20 q 0 6 -5 5 h 3.5" />
-        {/* 4th — right edge, extended to x125.5 */}
         <path d="M 170 82 v -21.8 q 0 -5 -5 -5 h -35.5" />
-        {/* 5th — bottom edge, extended to y67 */}
         <path
           strokeDasharray="100 100"
           pathLength="100"
           d="M 139 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -28"
         />
-        {/* 6th — bottom edge, extended to y67 */}
         <path d="M 90.8 95 v -28" />
-        {/* 7th — left edge, extended to x74.5 */}
         <path d="M 58 91 v -15 q 0 -5 -5 -5 h -20 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 52.5" />
-        {/* 8th — left edge, extended to x74.5 */}
         <path d="M 30 28 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 9.5" />
-        {/* Animation For Path Starting */}
         {animateLines && (
           <animate
             attributeName="stroke-dashoffset"
@@ -86,9 +75,6 @@ const CpuArchitecture = ({
         )}
       </g>
 
-      {/* Light traces — each circle travels its mask path via SMIL animateMotion.
-          (More reliable than CSS offset-path on SVG circles across browsers.) */}
-      {/* 1. Blue Light */}
       <g mask="url(#cpu-mask-1)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-blue-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="0s" rotate="auto">
@@ -96,7 +82,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 2. Yellow Light */}
       <g mask="url(#cpu-mask-2)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-yellow-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="0.6s" rotate="auto">
@@ -104,7 +89,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 3. Pinkish Light */}
       <g mask="url(#cpu-mask-3)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-pinkish-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="1.2s" rotate="auto">
@@ -112,7 +96,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 4. White Light */}
       <g mask="url(#cpu-mask-4)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-white-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="1.8s" rotate="auto">
@@ -120,7 +103,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 5. Green Light */}
       <g mask="url(#cpu-mask-5)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-green-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="2.4s" rotate="auto">
@@ -128,7 +110,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 6. Orange Light */}
       <g mask="url(#cpu-mask-6)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-orange-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="3s" rotate="auto">
@@ -136,7 +117,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 7. Cyan Light */}
       <g mask="url(#cpu-mask-7)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-cyan-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="3.6s" rotate="auto">
@@ -144,7 +124,6 @@ const CpuArchitecture = ({
           </animateMotion>
         </circle>
       </g>
-      {/* 8. Rose Light */}
       <g mask="url(#cpu-mask-8)">
         <circle cx="0" cy="0" r="8" fill="url(#cpu-rose-grad)">
           <animateMotion dur="5s" repeatCount="indefinite" begin="4.2s" rotate="auto">
@@ -153,7 +132,6 @@ const CpuArchitecture = ({
         </circle>
       </g>
 
-      {/* ── NEON PULSE DASHES — short bright segments racing each trace ── */}
       {showPcbEnvironment && (
         <g fill="none" strokeLinecap="round" filter="url(#pcb-glow)">
           {[
@@ -177,10 +155,7 @@ const CpuArchitecture = ({
         </g>
       )}
 
-      {/* CPU Box — scaled up as one unit (box + pins + logo) around center (100,50)
-          so the pins stay glued to the box edges. Traces are extended to meet it. */}
       <g transform="translate(-70 -35) scale(1.7)">
-        {/* Cpu connections */}
         {showCpuConnections && (
           <g fill="url(#cpu-connection-gradient)">
             <rect x="93" y="37" width="2.5" height="5" rx="0.7" />
@@ -235,7 +210,6 @@ const CpuArchitecture = ({
             />
           </g>
         )}
-        {/* Main CPU Rectangle (original 30×20; the parent <g> scales it up). */}
         <rect
           x="85"
           y="40"
@@ -245,7 +219,6 @@ const CpuArchitecture = ({
           fill="#181818"
           filter="url(#cpu-light-shadow)"
         />
-        {/* CPU Logo — Capture.svg centered, native aspect preserved (no stretch). */}
         <image
           href="/images/Capture.svg"
           x="89.7"
@@ -255,9 +228,7 @@ const CpuArchitecture = ({
           preserveAspectRatio="xMidYMid meet"
         />
       </g>
-      {/* Masks */}
       <defs>
-        {/* Neon glow — the ONLY glowing element; applied to the pulse dashes. */}
         <filter id="pcb-glow" x="-100%" y="-100%" width="300%" height="300%">
           <feGaussianBlur stdDeviation="1.6" result="blur" />
           <feMerge>
@@ -265,8 +236,6 @@ const CpuArchitecture = ({
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
-        {/* Reusable motion paths for the light traces (referenced by <mpath>).
-            Must match the visible trace <path> d-values exactly. */}
         <path id="cpu-path-1" d="M 10 20 h 75.5 q 5 0 5 5 v 20" />
         <path id="cpu-path-2" d="M 180 10 h -65.7 q -5 0 -5 5 v 15" />
         <path id="cpu-path-3" d="M 135 20 v 20 q 0 6 -5 5 h 3.5" />
@@ -333,7 +302,6 @@ const CpuArchitecture = ({
             stroke="white"
           />
         </mask>
-        {/* Gradients */}
         <radialGradient id="cpu-blue-grad" fx="1">
           <stop offset="0%" stopColor="#00E8ED" />
           <stop offset="50%" stopColor="#08F" />
@@ -406,7 +374,6 @@ const CpuArchitecture = ({
             )}
           </circle>
         </marker>
-        {/* Cpu connection gradient */}
         <linearGradient
           id="cpu-connection-gradient"
           x1="0"
@@ -417,7 +384,6 @@ const CpuArchitecture = ({
           <stop offset="0%" stopColor="#4F4F4F" />
           <stop offset="60%" stopColor="#121214" />
         </linearGradient>
-        {/* Add CPU Text Gradient */}
         <linearGradient id="cpu-text-gradient" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#666666">
             <animate
