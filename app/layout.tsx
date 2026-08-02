@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://vertexcore.ai"), // Update with actual domain if different
+  metadataBase: new URL("https://vertexcoreai.com"), // Update with actual domain if different
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vertexcore.ai",
+    url: "https://vertexcoreai.com",
     siteName: "VertexCore AI",
     title: "VertexCore AI - Intelligence That Shapes The Future",
     description:
@@ -119,7 +119,7 @@ export default function RootLayout({
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8814232081361907"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           crossOrigin="anonymous"
         />
       </head>
