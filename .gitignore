@@ -39,3 +39,6 @@ skills-lock.json
 
 # resume uploads (local dev; production uses a mounted volume)
 /uploads
+
+# playwright mcp session artifacts
+/.playwright-mcp/
