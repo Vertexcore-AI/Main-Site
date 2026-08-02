@@ -41,8 +41,8 @@ export async function sendProductRequest(data: {
   try {
     await transporter.sendMail(mailOptions);
     return { success: true };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error sending product request email:", error);
-    return { success: false, error: "Failed to send email" };
+    return { success: false, error: `Error: ${error.message}` };
   }
 }
