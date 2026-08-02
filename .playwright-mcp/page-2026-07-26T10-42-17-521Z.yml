@@ -1,0 +1,12 @@
+- generic [active] [ref=f11e1]:
+  - main [ref=f11e2]:
+    - generic [ref=f11e3]:
+      - heading "Admin Login" [level=1] [ref=f11e4]
+      - generic [ref=f11e5]:
+        - text: Email
+        - textbox "Email" [ref=f11e6]
+      - generic [ref=f11e7]:
+        - text: Password
+        - textbox "Password" [ref=f11e8]
+      - button "Sign In" [ref=f11e9] [cursor=pointer]
+  - region "Notifications alt+T"

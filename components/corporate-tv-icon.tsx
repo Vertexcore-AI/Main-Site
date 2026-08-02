@@ -11,7 +11,7 @@ export function CorporateTvIcon() {
   return (
     <div className="relative">
       <Link
-        href="/corporate-login"
+        href="/admin/login"
         className="flex items-center justify-center w-10 h-10 rounded-lg border border-border/50 bg-background/80 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

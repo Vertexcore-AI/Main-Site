@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/dashboard/", "/corporate-login/"],
+      disallow: ["/dashboard/", "/admin/"],
     },
     sitemap: "https://vertexcore.ai/sitemap.xml",
   };

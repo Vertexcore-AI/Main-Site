@@ -15,6 +15,7 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   headers: async () => [
     {
       source: '/(.*)',
