@@ -4,7 +4,6 @@ import Script from "next/script";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "@/contexts/language-context";
 import { BusinessProfileHeader } from "@/components/business-profile-header";
 import { Toaster } from "sonner";
 
@@ -124,11 +123,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-            <BusinessProfileHeader />
-            {children}
-            <Toaster />
-          </LanguageProvider>
+          <BusinessProfileHeader />
+          {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

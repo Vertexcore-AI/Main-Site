@@ -7,13 +7,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/language-context";
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,11 +29,11 @@ export function NavBar() {
 
   const navItems: NavItem[] = [
     { name: "Services", href: "/services" },
-    { name: t("Case Studies"), href: "/case-studies" },
-    { name: t("nav.process"), href: "/process" },
-    { name: t("nav.support"), href: "/support" },
+    { name: "Products", href: "/live-sites" },
     { name: "Projects", href: "/projects" },
-    { name: t("nav.portfolio"), href: "/live-sites" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Support", href: "/support" },
     { name: "Contact Us", href: "/contact" },
   ];
 
