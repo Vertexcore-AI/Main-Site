@@ -1,0 +1,20 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use by process 21904, using available port 3001 instead.
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.8.199:3001
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.7s
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.8.199:3001
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
