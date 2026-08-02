@@ -7,6 +7,60 @@ import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+const supportPlans = [
+  {
+    id: "standard",
+    name: "Standard Maintenance",
+    icon: "/images/3D-Icons/shield.png",
+    tagline: "We keep your application secure and running smoothly.",
+    features: [
+      "Security patches & updates",
+      "Uptime monitoring",
+      "Priority bug fixes",
+      "Email support (48hr response)",
+      "99.99% uptime guarantee",
+    ],
+    highlighted: false,
+    cta: "Get Started",
+    ctaHref: "/contact",
+    accent: "neutral",
+  },
+  {
+    id: "dedicated",
+    name: "Dedicated Team",
+    icon: "/images/3D-Icons/laptop.png",
+    tagline: "24/7 availability with a team that knows your product inside-out.",
+    features: [
+      "Everything in Standard",
+      "24/7 availability",
+      "Dedicated Slack channel",
+      "Priority bug fixes",
+      "Monthly strategy calls",
+    ],
+    highlighted: true,
+    cta: "Choose Plan",
+    ctaHref: "/consultation",
+    accent: "emerald",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise SLA",
+    icon: "/images/3D-Icons/rocket.png",
+    tagline: "Mission-critical support with guaranteed uptime and response times.",
+    features: [
+      "Everything in Dedicated",
+      "99.99% uptime guarantee",
+      "<1hr critical response time",
+      "Custom SLA terms",
+      "Dedicated account manager",
+    ],
+    highlighted: false,
+    cta: "Contact Us",
+    ctaHref: "/contact",
+    accent: "purple",
+  },
+];
+
 export default function SupportPage() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -53,145 +107,59 @@ export default function SupportPage() {
             </p>
           </motion.div> */}
 
-          <div className="flex justify-center mb-20">
-            {/* Standard Maintenance */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-300"
-            >
-              <div className="w-20 h-20 flex items-center justify-center mb-6 mx-auto">
-                <Image
-                  src="/images/3D-Icons/shield.png"
-                  alt="Shield"
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3 text-center">
-                Standard Maintenance
-              </h3>
-              <p className="text-gray-400 mb-6">
-                We keep your application secure and running smoothly.
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">
-                    Security patches & updates
-                  </span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Uptime monitoring</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Priority bug fixes</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">
-                    Email support (48hr response)
-                  </span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">99.99% uptime guarantee</span>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-20">
+            {supportPlans.map((plan, index) => {
+              const isEmerald = plan.accent === "emerald";
+              const isPurple = plan.accent === "purple";
+              return (
+                <motion.div
+                  key={plan.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  className={`relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-3xl p-8 flex flex-col transition-all duration-300 ${
+                    plan.highlighted
+                      ? "border-2 border-emerald-500/40 shadow-lg shadow-emerald-500/10"
+                      : isPurple
+                        ? "border border-gray-700 hover:border-purple-500/40"
+                        : "border border-gray-700 hover:border-emerald-500/30"
+                  }`}
+                >
+                  <div className="w-20 h-20 flex items-center justify-center mb-6 mx-auto">
+                    <Image
+                      src={plan.icon}
+                      alt={plan.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
 
-              <div className="pt-4 border-t border-gray-700">
-                <p className="text-sm text-gray-500">Free</p>
-              </div>
-            </motion.div>
+                  <h3 className="text-2xl font-bold text-white mb-3 text-center">
+                    {plan.name}
+                  </h3>
+                  <p className="text-gray-400 mb-6 text-center">{plan.tagline}</p>
 
-            {/* Dedicated Team */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gradient-to-br from-emerald-500/10 to-green-600/10 backdrop-blur-sm border-2 border-emerald-500/30 rounded-3xl p-8 relative"
-            >
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  Popular
-                </span>
-              </div>
-              <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
-                <Headphones className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Dedicated Team</h3>
-              <p className="text-gray-400 mb-6">24/7 availability with a dedicated team that knows your product inside-out.</p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Everything in Standard</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">24/7 availability</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Dedicated Slack channel</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Priority bug fixes</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Monthly strategy calls</span>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-emerald-500/20">
-                <p className="text-sm text-gray-500">Starting at</p>
-                <p className="text-3xl font-bold text-white">$999<span className="text-lg text-gray-400">/mo</span></p>
-              </div>
-            </motion.div> */}
+                  <div className="space-y-3 mb-6 flex-1">
+                    {plan.features.map((feature) => (
+                      <div key={feature} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-            {/* Enterprise SLA */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 hover:border-purple-500/30 transition-all duration-300"
-            >
-              <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <Zap className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Enterprise SLA</h3>
-              <p className="text-gray-400 mb-6">Mission-critical support with guaranteed uptime and response times.</p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Everything in Dedicated</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">99.99% uptime guarantee</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">&lt;1hr critical response time</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Custom SLA terms</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Dedicated account manager</span>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-gray-700">
-                <p className="text-sm text-gray-500">Custom pricing</p>
-                <p className="text-3xl font-bold text-white">Contact Us</p>
-              </div>
-            </motion.div> */}
+                  <div className="pt-4 border-t border-gray-700">
+                    <a
+                      href={plan.ctaHref}
+                      className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 bg-gray-800 text-white border border-gray-700 hover:border-emerald-500/40"
+                    >
+                      {plan.cta}
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,18 +1,18 @@
 import { Metadata } from "next";
-import PortfolioClient from "@/components/PortfolioClient";
+import ProductsClient from "@/components/ProductsClient";
 
 export const metadata: Metadata = {
-  title: "Portfolio - VertexCore AI",
+  title: "Products - VertexCore AI",
   description:
-    "Explore our portfolio spanning Beauty & Wellness, Hospitality & Food Service, Construction & Engineering, and Retail & Home Improvement.",
+    "Explore VertexCore AI's SaaS products. VPOS is a cloud-based Point of Sale & Inventory Management platform with a live demo.",
   openGraph: {
-    title: "VertexCore AI Portfolio",
+    title: "VertexCore AI Products - VPOS SaaS",
     description:
-      "Showcasing our work across four key industry verticals.",
+      "VPOS - Cloud-based Point of Sale & Inventory Management. Try the live demo.",
     url: "https://vertexcore.ai/live-sites",
   },
 };
 
-export default function PortfolioPage() {
-  return <PortfolioClient />;
+export default function ProductsPage() {
+  return <ProductsClient />;
 }

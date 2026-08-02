@@ -1,9 +1,9 @@
 import type React from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "@/contexts/language-context";
 import { BusinessProfileHeader } from "@/components/business-profile-header";
 import { Toaster } from "sonner";
 
@@ -96,6 +96,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-VNTZPY8SS0"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VNTZPY8SS0');
+            `,
+          }}
+        />
+      </head>
       <body className={`${poppins.className} ${poppins.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider
           attribute="class"
@@ -103,11 +123,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-            <BusinessProfileHeader />
-            {children}
-            <Toaster />
-          </LanguageProvider>
+          <BusinessProfileHeader />
+          {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
