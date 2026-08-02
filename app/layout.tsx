@@ -115,6 +115,13 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8814232081361907"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={`${poppins.className} ${poppins.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider
