@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum JobStatus {
+  OPEN
+  CLOSED
+}
+
+enum ApplicantStatus {
+  NEW
+  REVIEWED
+  SHORTLISTED
+  REJECTED
+  HIRED
+}
+
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model JobPosting {
+  id             Int         @id @default(autoincrement())
+  title          String
+  department     String
+  location       String
+  employmentType String
+  description    String      @db.Text
+  requirements   String      @db.Text
+  compensation   String
+  status         JobStatus   @default(OPEN)
+  applicants     Applicant[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model Applicant {
+  id                 Int             @id @default(autoincrement())
+  jobPostingId       Int
+  jobPosting         JobPosting      @relation(fields: [jobPostingId], references: [id])
+  name               String
+  email              String
+  phone              String
+  coverNote          String?         @db.Text
+  resumePath         String
+  resumeOriginalName String
+  status             ApplicantStatus @default(NEW)
+  internalNote       String?         @db.Text
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  @@index([jobPostingId])
+}

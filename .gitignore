@@ -18,6 +18,7 @@ yarn-error.log*
 
 # env files
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -27,6 +28,17 @@ yarn-error.log*
 next-env.d.ts
 
 /.claude
+/.agents
+/.windsurf
+skills-lock.json
 
 # Snyk Security Extension - AI Rules (auto-generated)
 .github\instructions\snyk_rules.instructions.md
+
+/lib/generated/prisma
+
+# resume uploads (local dev; production uses a mounted volume)
+/uploads
+
+# playwright mcp session artifacts
+/.playwright-mcp/
